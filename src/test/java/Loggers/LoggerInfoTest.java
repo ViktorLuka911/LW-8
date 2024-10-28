@@ -1,13 +1,12 @@
 package Loggers;
 
-import static org.mockito.Mockito.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-import java.io.IOException;
-import java.util.logging.FileHandler;
 import java.util.logging.Logger;
+
+import static org.mockito.Mockito.*;
 
 class LoggerInfoTest {
 
@@ -27,16 +26,6 @@ class LoggerInfoTest {
         loggerInfo.setFileLogger(mockLogger);
         loggerInfo.setErrorLogger(mockLoggerError);
     }
-
-//    @Test
-//    void testIOExceptionInConstructor() throws IOException {
-//        when(new FileHandler("logs/program.log", true)).thenThrow(new IOException("Файл не доступний"));
-//
-//        LoggerInfo loggerInfo = spy(LoggerInfo.getInstance());
-//        loggerInfo.setErrorLogger(mockLoggerError);
-//
-//        verify(mockLoggerError, times(1)).sendError(eq("Помилка відкриття файлу"), anyString());
-//    }
 
     @Test
     void testLogInfo() {
@@ -81,7 +70,6 @@ class LoggerInfoTest {
         String message = "Текст помилки";
         loggerInfo.logError(title, message);
 
-        // Перевіряємо, що новий errorLogger був викликаний
         verify(newMockLoggerError, times(1)).sendError(title, message);
     }
 }

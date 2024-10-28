@@ -16,7 +16,6 @@ public class LoggerInfo {
                 rootLogger.removeHandler(handler);
             }
 
-            // Створення FileHandler для запису у файл
             FileHandler fileHandler = new FileHandler("logs/program.log", true);
             fileHandler.setFormatter(new CustomFormatter());
             fileLogger.addHandler(fileHandler);
@@ -32,10 +31,6 @@ public class LoggerInfo {
             instance = new LoggerInfo();
         }
         return instance;
-    }
-
-    public static void setInstance(LoggerInfo loggerInfo) {
-        instance = loggerInfo;
     }
 
     public void logInfo(String message) {

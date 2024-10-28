@@ -7,6 +7,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class DataFileLoggerTest {
@@ -22,9 +23,6 @@ class DataFileLoggerTest {
     @AfterEach
     void tearDown() {
         logger.close();
-        if (tempFile.exists()) {
-            tempFile.delete();
-        }
     }
 
     @Test
@@ -63,7 +61,7 @@ class DataFileLoggerTest {
     }
 
     @Test
-    void testClose() throws IOException {
+    void testClose() {
         logger.init(tempFile.getAbsolutePath(), false);
         logger.close();
         assertNull(logger.writer);

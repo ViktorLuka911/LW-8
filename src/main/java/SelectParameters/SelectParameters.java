@@ -8,7 +8,7 @@ public class SelectParameters {
         System.out.println("\n\n\tВиберіть країну:\n");
 
         for (Country country : Country.values()) {
-            System.out.println("\t" + (country.ordinal() + 1) + " - " + country);
+            System.out.printf("\t%d - %s%n", country.ordinal() + 1, country);
         }
 
         int choice = Utilities.getValidatedInput(1, Country.values().length);
@@ -19,7 +19,7 @@ public class SelectParameters {
         System.out.println("\n\n\tВиберіть тип путівки:\n");
 
         for (VoucherType type : VoucherType.values()) {
-            System.out.println("\t" + (type.ordinal() + 1) + " - " + type);
+            System.out.printf("\t%d - %s%n", type.ordinal() + 1, type);
         }
 
         int choice = Utilities.getValidatedInput(1, VoucherType.values().length);
@@ -31,7 +31,7 @@ public class SelectParameters {
         System.out.println("\n\n\tВиберіть транспорт:\n");
 
         for (VoucherTransport transport : VoucherTransport.values()) {
-            System.out.println("\t" + (transport.ordinal() + 1) + " - " + transport);
+            System.out.printf("\t%d - %s%n", transport.ordinal() + 1, transport);
         }
 
         int choice = Utilities.getValidatedInput(1, VoucherTransport.values().length);
@@ -43,7 +43,7 @@ public class SelectParameters {
         System.out.println("\n\n\tВиберіть тип харчування:\n");
 
         for (Nutrition nutrition : Nutrition.values()) {
-            System.out.println("\t" + (nutrition.ordinal() + 1) + " - " + nutrition);
+            System.out.printf("\t%d - %s%n", nutrition.ordinal() + 1, nutrition);
         }
 
         int choice = Utilities.getValidatedInput(1, Nutrition.values().length);
@@ -55,7 +55,7 @@ public class SelectParameters {
         System.out.println("\n\n\tВиберіть бюджет:\n");
 
         for (Budget budget : Budget.values()) {
-            System.out.println("\t" + (budget.ordinal() + 1) + " - " + budget);
+            System.out.printf("\t%d - %s%n", budget.ordinal() + 1, budget);
         }
 
         int choice = Utilities.getValidatedInput(1, Budget.values().length);

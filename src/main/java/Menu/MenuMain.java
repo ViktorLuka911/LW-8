@@ -6,9 +6,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class MenuMain extends Menu {
+
     public MenuMain() {
 
-        // Ініціалізація списку підменю
         ArrayList<Menu> subMenus = new ArrayList<>(
                 Arrays.asList(
                         new MenuCategory(),
@@ -16,7 +16,6 @@ public class MenuMain extends Menu {
                 )
         );
 
-        // Ініціалізація списку команд
         ArrayList<Command> commands = new ArrayList<>(
                 Arrays.asList(
                         new ReferenceCommand("Довідка"),
@@ -28,7 +27,6 @@ public class MenuMain extends Menu {
                 )
         );
 
-        // Виклик конструктора батьківського класу з аргументами
         super("Головне меню", commands, subMenus);
     }
 

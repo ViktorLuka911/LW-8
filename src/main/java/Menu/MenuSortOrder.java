@@ -10,10 +10,8 @@ public class MenuSortOrder extends Menu {
 
     public MenuSortOrder(String type) {
 
-        // Ініціалізація списку підменю
         ArrayList<Menu> subMenus = new ArrayList<>();
 
-        // Ініціалізація списку команд
         ArrayList<Command> commands = new ArrayList<>(
                 Arrays.asList(
                         new SortCommand(type, "За зростанням"),
@@ -26,10 +24,10 @@ public class MenuSortOrder extends Menu {
 
     @Override
     public void printMenu() {
-        System.out.println("\n\t\t\t" + title + "\n");
+        System.out.printf("\n\t\t\t%s%n%n", title);
         int i = 0;
         while (i < commands.size()) {
-            System.out.println("\t " + (i + 1) + " - " + commands.get(i).getTitle());
+            System.out.printf("\t %d - %s%n", i + 1, commands.get(i).getTitle());
             i++;
         }
     }

@@ -1,7 +1,8 @@
 package Commands;
 
 public class SortCommand extends Command {
-    private String type;
+
+    private final String type;
 
     public SortCommand(String type, String title) {
         super(title);
@@ -19,17 +20,17 @@ public class SortCommand extends Command {
         switch (getType()) {
             case "Сортувати за кількістю днів":
                 systemVouchers.sortVouchersByDays(ascending);
-                loggerInfo.logInfo("Користувач вибрав сортування за кількістю днів у порядку " + ((ascending) ? "зростання." : "спадання."));
+                loggerInfo.logInfo(String.format("Користувач вибрав сортування за кількістю днів у порядку %s.", ascending ? "зростання" : "спадання"));
                 break;
 
             case "Сортувати за ціною":
                 systemVouchers.sortVouchersByPrice(ascending);
-                loggerInfo.logInfo("Користувач вибрав сортування за ціною путівки у порядку " + ((ascending) ? "зростання." : "спадання."));
+                loggerInfo.logInfo(String.format("Користувач вибрав сортування за ціною путівки у порядку %s.", ascending ? "зростання" : "спадання"));
                 break;
 
             case "Сортувати за датою":
                 systemVouchers.sortVouchersByDate(ascending);
-                loggerInfo.logInfo("Користувач вибрав сортування за датою путівки у порядку " + ((ascending) ? "зростання." : "спадання."));
+                loggerInfo.logInfo(String.format("Користувач вибрав сортування за датою путівки у порядку %s.", ascending ? "зростання" : "спадання"));
                 break;
         }
         systemVouchers.showVouchers(true);

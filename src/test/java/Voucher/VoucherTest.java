@@ -9,8 +9,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.MockedStatic;
 import org.mockito.Mockito;
-import java.io.ByteArrayInputStream;
 import java.time.LocalDate;
+
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 import static org.powermock.api.mockito.PowerMockito.verifyStatic;
@@ -107,6 +107,7 @@ public class VoucherTest {
     @Test
     public void testEquals() {
         Voucher voucher1 = voucher;
+
         assertTrue(voucher.equals(voucher1));
     }
 
@@ -115,12 +116,14 @@ public class VoucherTest {
         Voucher voucher1 = new Voucher(voucher.getCountry(), voucher.getPrice(),
                 voucher.getType(), voucher.getTransport(), voucher.getNutrition(), voucher.getBudget(),
                 voucher.getNumberOfDays(), voucher.getVoucherDate());
+
         assertTrue(voucher.equals(voucher1));
     }
 
     @Test
     public void testNotEquals() {
         String object = "123";
+
         assertFalse(voucher.equals(object));
     }
 
@@ -131,14 +134,16 @@ public class VoucherTest {
 
     @Test
     public void toStringLogger() {
-        Assertions.assertEquals("Тип: Екскурсія\n" +
-                "Країна: Італія\n" +
-                "Транспорт: Потяг\n" +
-                "Харчування: Все включено\n" +
-                "Бюджет: Середній\n" +
-                "Кількість днів: 4\n" +
-                "Дата поїздки: 2024-11-11\n" +
-                "Ціна: 2150", voucher.toStringLogger());
+        Assertions.assertEquals(String.format("Тип: %s%nКраїна: %s%nТранспорт: %s%nХарчування: %s%nБюджет: %s%nКількість днів: %d%nДата поїздки: %s%nЦіна: %d",
+                "Екскурсія",
+                "Італія",
+                "Потяг",
+                "Все включено",
+                "Середній",
+                4,
+                "2024-11-11",
+                2150), voucher.toStringLogger());
+
     }
 
     @Test
@@ -161,7 +166,6 @@ public class VoucherTest {
     @Test
     void testDefaultConstructor() {
 
-        // Мокуємо виклики методів
         when(SelectParameters.selectVoucherType()).thenReturn(VoucherType.Shopping);
         when(SelectParameters.selectCountry()).thenReturn(Country.Germany);
         when(SelectParameters.selectTransport()).thenReturn(VoucherTransport.Train);
@@ -170,10 +174,8 @@ public class VoucherTest {
         when(Utilities.getValidatedInput(1, 5)).thenReturn(4);
         when(Utilities.getValidatedDateInput()).thenReturn("2024-11-20");
 
-        // Створюємо об'єкт Voucher за допомогою конструктора за замовчуванням
         Voucher voucher1 = new Voucher();
 
-        // Перевірка значень об'єкта Voucher
         assertEquals(VoucherType.Shopping, voucher1.getType());
         assertEquals(Country.Germany, voucher1.getCountry());
         assertEquals(VoucherTransport.Train, voucher1.getTransport());
@@ -182,7 +184,6 @@ public class VoucherTest {
         assertEquals(4, voucher1.getNumberOfDays());
         assertEquals("2024-11-20", voucher1.getVoucherDate().toString());
 
-        // Перевіряємо, що методи були викликані один раз
         verifyStatic(SelectParameters.class);
         SelectParameters.selectVoucherType();
         verifyStatic(SelectParameters.class);

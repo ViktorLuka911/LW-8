@@ -14,7 +14,6 @@ public class LoggerError {
         props.put("mail.smtp.auth", "true");
         props.put("mail.smtp.starttls.enable", "true");
 
-        // Аутентифікація
         Session session = Session.getInstance(props, new Authenticator() {
             @Override
             protected PasswordAuthentication getPasswordAuthentication() {
@@ -23,14 +22,12 @@ public class LoggerError {
         });
 
         try {
-            // Створити повідомлення
             Message message = new MimeMessage(session);
             message.setFrom(new InternetAddress("viktorluka2525@gmail.com"));
             message.setRecipients(Message.RecipientType.TO, InternetAddress.parse("lv418153@gmail.com"));
             message.setSubject(subject);
             message.setText(messageBody);
 
-            // Відправляємо повідомлення
             Transport.send(message);
 
         } catch (MessagingException e) {

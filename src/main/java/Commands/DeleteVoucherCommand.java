@@ -1,7 +1,6 @@
 package Commands;
 
 import Utilities.Utilities;
-
 import java.util.Scanner;
 
 public class DeleteVoucherCommand extends Command {
@@ -11,18 +10,18 @@ public class DeleteVoucherCommand extends Command {
 
     @Override
     public void execute() {
-        Scanner sc = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
 
         if (systemVouchers.getVouchers().isEmpty()) {
             System.out.println("\n\tСписок вибраних путівок порожній.");
             System.out.print("\n\tНатисніть Enter, щоб продовжити...");
-            sc.nextLine();
+            scanner.nextLine();
             return;
         }
 
         systemVouchers.showVouchers(false);
         int choice = Utilities.getValidatedInput(1, systemVouchers.getVouchers().size());
-        loggerInfo.logInfo("\tПутівку видалено.\n" + systemVouchers.getVouchers().get(choice - 1).toStringLogger());
+        loggerInfo.logInfo(String.format("\tПутівку видалено.%n%s", systemVouchers.getVouchers().get(choice - 1).toStringLogger()));
         systemVouchers.deleteVoucher(systemVouchers.getVouchers().get(choice - 1));
     }
 }

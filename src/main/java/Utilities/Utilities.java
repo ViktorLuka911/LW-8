@@ -9,7 +9,6 @@ public class Utilities {
 
     private static final LoggerInfo loggerInfo = LoggerInfo.getInstance();
 
-    //Функція для правильного введення
     public static int getValidatedInput(int min, int max) {
         Scanner scanner = new Scanner(System.in);
         int input;
@@ -30,24 +29,21 @@ public class Utilities {
         while (true) {
             String input = scanner.nextLine();
             try {
-                // Спроба парсингу дати
                 LocalDate parsedDate = LocalDate.parse(input);
 
-                // Додаткова перевірка дати, якщо потрібно
                 if (parsedDate.isBefore(LocalDate.now())) {
                     System.out.print("\n\tДата не може бути у минулому. Спробуйте знову (формат: YYYY-MM-DD):");
                     continue;
                 }
 
-                return input; // Повертаємо валідний рядок дати
+                return input;
             } catch (DateTimeParseException e) {
                 System.out.print("\n\tНевірний формат дати. Спробуйте знову (формат: YYYY-MM-DD):");
-                loggerInfo.logError("Виникла помилка під час встановлення дати путівки.\n", "Користувач ввів: " + input + ".");
+                loggerInfo.logError("Виникла помилка під час встановлення дати путівки.\n", String.format("Користувач ввів: %s.", input));
             }
         }
     }
 
-    // Функція для очищення консолі
     public static void clearConsole() {
         for (int clear = 0; clear < 10; clear++) {
             System.out.println("\n") ;

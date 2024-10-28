@@ -7,9 +7,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class MenuSort extends Menu {
+
     public MenuSort() {
 
-        // Ініціалізація списку підменю
         ArrayList<Menu> subMenus = new ArrayList<>(
                 Arrays.asList(
                         new MenuSortOrder("Сортувати за кількістю днів"),
@@ -18,7 +18,6 @@ public class MenuSort extends Menu {
                 )
         );
 
-        // Ініціалізація списку команд
         ArrayList<Command> commands = new ArrayList<>(
                 Arrays.asList(
                         new GoToMenuCommand("Сортувати за кількістю днів", subMenus.get(0)),
@@ -32,11 +31,9 @@ public class MenuSort extends Menu {
 
     @Override
     public void printMenu() {
-        System.out.println("\n\t\t\t"  + title + "\n");
-        int i = 0;
-        while (i < commands.size()) {
-            System.out.println("\t " + (i + 1) + " - " + commands.get(i).getTitle());
-            i++;
+        System.out.printf("\n\t\t\t%s%n%n", title);
+        for (int i = 0; i < commands.size(); i++) {
+            System.out.printf("\t %d - %s%n", i + 1, commands.get(i).getTitle());
         }
     }
 

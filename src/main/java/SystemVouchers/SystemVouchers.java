@@ -44,8 +44,8 @@ public class SystemVouchers {
 
             StringBuilder border = new StringBuilder();
             border.append("-".repeat(Math.max(0, header.length() - 9)));
-            System.out.println("\t" + header);
-            System.out.println("\t" + border);
+            System.out.printf("\t%s%n", header);
+            System.out.printf("\t%s%n", border);
 
             int counter = 1;
             for (Voucher voucher : vouchers.getList()) {
@@ -53,7 +53,7 @@ public class SystemVouchers {
                 counter++;
             }
 
-            System.out.println("\t" + border);
+            System.out.printf("\t%s%n", border);
 
             if (pressEnter) {
                 System.out.print("\n\tНатисніть Enter, щоб продовжити...");

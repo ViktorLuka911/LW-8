@@ -4,13 +4,13 @@ import Commands.Command;
 import Commands.ReferenceCommand;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.util.ArrayList;
-import Voucher.Voucher;
-import SystemVouchers.SystemVouchers;
+
+import static org.junit.jupiter.api.Assertions.*;
+
 class MenuTest {
     private final ByteArrayOutputStream outputStreamCaptor = new ByteArrayOutputStream();
     private Menu menu;
@@ -80,7 +80,7 @@ class MenuTest {
     @Test
     public void testGetCommands() {
         assertEquals(1, menu.getCommands().size());
-        assertEquals(referenceCommand, menu.getCommands().get(0));
+        assertEquals(referenceCommand, menu.getCommands().getFirst());
     }
 
     @Test

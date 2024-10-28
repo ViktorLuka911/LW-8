@@ -20,10 +20,8 @@ public class MenuSortOrderTest {
 
     @Test
     public void testPrintMenu() {
-        // Тест для перевірки виводу меню
         MenuSortOrder.printMenu();
-        // Зазначте, що тут можна додати конкретну перевірку, якщо потрібно
-        assertTrue(true); // Placeholder, можна замінити на конкретну перевірку
+        assertTrue(true);
     }
 
     @Test
@@ -37,7 +35,7 @@ public class MenuSortOrderTest {
             MenuSortOrder.selectCommand();
 
             verify(mockCommand, times(1)).execute();
-            mockedUtilities.verify(() -> Utilities.getValidatedInput(1, 2)); // Перевірка виклику
+            mockedUtilities.verify(() -> Utilities.getValidatedInput(1, 2));
         }
     }
 
@@ -54,7 +52,7 @@ public class MenuSortOrderTest {
             MenuSortOrder.selectCommand();
 
             verify(mockCommand, times(1)).execute();
-            mockedUtilities.verify(() -> Utilities.getValidatedInput(1, 2)); // Перевірка виклику
+            mockedUtilities.verify(() -> Utilities.getValidatedInput(1, 2));
         }
     }
 }

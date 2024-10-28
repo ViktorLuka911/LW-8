@@ -38,35 +38,13 @@ public class Voucher {
         this.tripDate = tripDate;
     }
 
-
-    @Override
-    public String toString() {
-        // Визначаємо формат для відображення інформації про ваучер
-        String format = "%-25s%-20s%-20s%-20s%-15s%-8s%-15s%-15s";
-
-        return String.format(format,
-                type,
-                country,
-                transport,
-                nutrition,
-                budget,
-                numberOfDays,
-                tripDate.toString(),
-                price);
-    }
-
     public String toStringLogger() {
-        return "Тип: " + type + "\n" +
-                "Країна: " + country + "\n" +
-                "Транспорт: " + transport + "\n" +
-                "Харчування: " + nutrition + "\n" +
-                "Бюджет: " + budget + "\n" +
-                "Кількість днів: " + numberOfDays + "\n" +
-                "Дата поїздки: " + tripDate.toString() + "\n" +
-                "Ціна: " + price;
+        return String.format(
+                "Тип: %s%nКраїна: %s%nТранспорт: %s%nХарчування: %s%nБюджет: %s%nКількість днів: %d%nДата поїздки: %s%nЦіна: %d",
+                type, country, transport, nutrition, budget, numberOfDays, tripDate, price
+        );
     }
 
-    // Метод для зчитування з рядка
     public static Voucher fromString(String line) {
         String typeString = line.substring(0, 25).trim();
         String countryString = line.substring(25, 45).trim();
@@ -94,11 +72,9 @@ public class Voucher {
         if (this == obj) {
             return true;
         }
-        if (!(obj instanceof Voucher)) {
+        if (!(obj instanceof Voucher other)) {
             return false;
         }
-
-        Voucher other = (Voucher) obj;
 
         return country == other.country &&
                 price == other.price &&
@@ -113,6 +89,21 @@ public class Voucher {
     @Override
     public int hashCode() {
         return Objects.hash(country, price, type, transport, nutrition, budget, numberOfDays, tripDate);
+    }
+
+    @Override
+    public String toString() {
+        String format = "%-25s%-20s%-20s%-20s%-15s%-8s%-15s%-15s";
+
+        return String.format(format,
+                type,
+                country,
+                transport,
+                nutrition,
+                budget,
+                numberOfDays,
+                tripDate.toString(),
+                price);
     }
 
     public int getPrice() {
@@ -191,16 +182,16 @@ public class Voucher {
 
         setPrice(getPrice() + selectedBudget.getPrice());
 
-        System.out.println("\n\tВи обрали: " + selectedBudget);
-        System.out.println("\tЦіна оновлена: " + getPrice());
+        System.out.printf("\n\tВи обрали: %s\n", selectedBudget);
+        System.out.printf("\tЦіна оновлена: %d\n", getPrice());
     }
 
     public void selectCountry() {
         Country selectedCountry = SelectParameters.selectCountry();
         setCountry(selectedCountry);
 
-        System.out.println("\n\tВи обрали: " + selectedCountry);
-        System.out.println("\n\tЦіна оновлена: " + getPrice());
+        System.out.printf("\n\tВи обрали: %s\n", selectedCountry);
+        System.out.printf("\tЦіна оновлена: %d\n", getPrice());
     }
 
     public void selectDate() {
@@ -216,14 +207,14 @@ public class Voucher {
         int minDays = 1;
         int maxDays = getType().getMaxDays();
 
-        System.out.print(String.format("\n\n\tВведіть кількість днів (%d - %d)", minDays, maxDays));
+        System.out.printf("\n\n\tВведіть кількість днів (%d - %d)", minDays, maxDays);
         int numberOfDays = Utilities.getValidatedInput(minDays, maxDays);
 
         setNumberOfDays(numberOfDays);
         int totalPrice = getType().getPrice() * numberOfDays;
-        System.out.println("\n\tЗагальна ціна за " + numberOfDays + " днів: " + totalPrice);
+        System.out.printf("\n\tЗагальна ціна за %d днів: %d\n", numberOfDays, totalPrice);
         setPrice(getPrice() + totalPrice);
-        System.out.println("\n\tЦіна оновлена: " + getPrice());
+        System.out.printf("\n\tЦіна оновлена: %d\n", getPrice());
 
     }
 
@@ -239,8 +230,9 @@ public class Voucher {
         setPrice(getPrice() + selectedNutrition.getPrice());
         setNutrition(selectedNutrition);
 
-        System.out.println("\n\tВи обрали: " + selectedNutrition);
-        System.out.println("\tЦіна оновлена: " + getPrice());
+
+        System.out.printf("\n\tВи обрали: %s\n", selectedNutrition);
+        System.out.printf("\tЦіна оновлена: %d\n", getPrice());
     }
 
     public void selectTransport() {
@@ -249,8 +241,8 @@ public class Voucher {
         setTransport(selectedTransport);
         setPrice(getPrice() + selectedTransport.getPrice());
 
-        System.out.println("\n\tВи обрали: " + selectedTransport);
-        System.out.println("\tЦіна оновлена: " + getPrice());
+        System.out.printf("\n\tВи обрали: %s\n", selectedTransport);
+        System.out.printf("\tЦіна оновлена: %d\n", getPrice());
     }
 
     public void selectType() {
@@ -259,7 +251,7 @@ public class Voucher {
 
         setPrice(getPrice() + selectedType.getPrice());
 
-        System.out.println("\n\tВи обрали: " + selectedType);
-        System.out.println("\tЦіна оновлена: " + getPrice());
+        System.out.printf("\n\tВи обрали: %s\n", selectedType);
+        System.out.printf("\tЦіна оновлена: %d\n", getPrice());
     }
 }

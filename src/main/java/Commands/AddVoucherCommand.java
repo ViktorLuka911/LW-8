@@ -11,14 +11,13 @@ public class AddVoucherCommand extends Command {
 
     @Override
     public void execute() {
-        Scanner scanner1 = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
         Voucher newVoucher = new Voucher();
         systemVouchers.addVoucher(newVoucher);
 
-        loggerInfo.logInfo("\tПутівку додано.\n" + newVoucher.toStringLogger());
+        loggerInfo.logInfo(String.format("\tПутівку додано.%n%s", newVoucher.toStringLogger()));
 
         System.out.print("\n\tНатисніть Enter, щоб продовжити...");
-        scanner1.nextLine();
+        scanner.nextLine();
     }
-
 }

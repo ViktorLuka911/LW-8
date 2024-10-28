@@ -7,12 +7,11 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class MenuCategory extends Menu {
+
     public MenuCategory() {
 
-        // Ініціалізація списку підменю
         ArrayList<Menu> subMenus = new ArrayList<>();
 
-        // Ініціалізація списку команд
         ArrayList<Command> commands = new ArrayList<>(
                 Arrays.asList(
                         new ShowListCommand("Вивести всі путівки"),
@@ -29,18 +28,15 @@ public class MenuCategory extends Menu {
 
     @Override
     public void printMenu() {
-        System.out.println("\n\t\t\t" + title  + "\n");
-        int i = 0;
-        while (i < commands.size()) {
-            System.out.println("\t " + (i + 1) + " - " + commands.get(i).getTitle());
-            i++;
+        System.out.printf("\n\t\t\t%s%n%n", title);
+        for (int i = 0; i < commands.size(); i++) {
+            System.out.printf("\t %d - %s%n", i + 1, commands.get(i).getTitle());
         }
     }
 
     @Override
     public boolean selectCommand() {
-        int choice = Utilities.getValidatedInput(1, 7);
-        boolean isRunning = true;
+        int choice = Utilities.getValidatedInput(1, 6);
         switch (choice) {
             case 1 -> commands.get(0).execute();
             case 2 -> commands.get(1).execute();
@@ -48,10 +44,7 @@ public class MenuCategory extends Menu {
             case 4 -> commands.get(3).execute();
             case 5 -> commands.get(4).execute();
             case 6 -> commands.get(5).execute();
-            case 7 -> isRunning = false;
         }
-
         return false;
     }
-
 }

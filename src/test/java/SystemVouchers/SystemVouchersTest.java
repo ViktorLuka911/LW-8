@@ -1,15 +1,10 @@
 package SystemVouchers;
 
 import List.ListVouchers;
-import List.ListVouchersTest;
-import Loggers.DataFileLogger;
 import VoucherParameters.*;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeEach;
 import Voucher.Voucher;
-import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
-
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
@@ -19,7 +14,6 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.mockito.Mockito.*;
 
 class SystemVouchersTest {
 
@@ -28,11 +22,8 @@ class SystemVouchersTest {
     private Voucher voucher2;
     private Voucher voucher3;
 
-    @Mock
-    private DataFileLogger mockDataFileLogger;
     @BeforeEach
     void setUp() {
-        mockDataFileLogger = mock(DataFileLogger.class);
         SystemVouchers.resetInstance();
         systemVouchers = SystemVouchers.getInstance();
         systemVouchers.getVouchers().clear();

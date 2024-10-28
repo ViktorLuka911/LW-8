@@ -29,7 +29,7 @@ public class MenuMainTest {
             menuMain.selectCommand();
 
             verify(mockCommand, times(1)).execute();
-            mockedUtilities.verify(() -> Utilities.getValidatedInput(1, 7)); // Перевірка виклику
+            mockedUtilities.verify(() -> Utilities.getValidatedInput(1, 7));
         }
     }
 
@@ -46,7 +46,7 @@ public class MenuMainTest {
             menuMain.selectCommand();
 
             verify(mockCommand, times(1)).execute();
-            mockedUtilities.verify(() -> Utilities.getValidatedInput(1, 7)); // Перевірка виклику
+            mockedUtilities.verify(() -> Utilities.getValidatedInput(1, 7));
         }
     }
 
@@ -61,7 +61,7 @@ public class MenuMainTest {
             menuMain.selectCommand();
 
             verify(mockCommand, times(1)).execute();
-            mockedUtilities.verify(() -> Utilities.getValidatedInput(1, 7)); // Перевірка виклику
+            mockedUtilities.verify(() -> Utilities.getValidatedInput(1, 7));
         }
     }
 
@@ -76,7 +76,7 @@ public class MenuMainTest {
             menuMain.selectCommand();
 
             verify(mockCommand, times(1)).execute();
-            mockedUtilities.verify(() -> Utilities.getValidatedInput(1, 7)); // Перевірка виклику
+            mockedUtilities.verify(() -> Utilities.getValidatedInput(1, 7));
         }
     }
 
@@ -91,7 +91,7 @@ public class MenuMainTest {
             menuMain.selectCommand();
 
             verify(mockCommand, times(1)).execute();
-            mockedUtilities.verify(() -> Utilities.getValidatedInput(1, 7)); // Перевірка виклику
+            mockedUtilities.verify(() -> Utilities.getValidatedInput(1, 7));
         }
     }
 
@@ -106,10 +106,9 @@ public class MenuMainTest {
             menuMain.selectCommand();
 
             verify(mockCommand, times(1)).execute();
-            mockedUtilities.verify(() -> Utilities.getValidatedInput(1, 7)); // Перевірка виклику
+            mockedUtilities.verify(() -> Utilities.getValidatedInput(1, 7));
         }
     }
-
 
     @Test
     public void testSelectCommand_Exit() {

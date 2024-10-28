@@ -4,7 +4,8 @@ import Menu.Menu;
 
 public class GoToMenuCommand extends Command {
 
-    private Menu menu;
+    private final Menu menu;
+
     public GoToMenuCommand(String title, Menu menu) {
         super(title);
         this.menu = menu;

@@ -40,7 +40,7 @@ public class UtilitiesTest {
 
     @Test
     public void testValidDateInput() {
-        String input = LocalDate.now().plusDays(1).toString() + "\n";
+        String input = String.format("%s%n", LocalDate.now().plusDays(1));
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
 
@@ -50,7 +50,7 @@ public class UtilitiesTest {
 
     @Test
     public void testInvalidDateInput() {
-        String input = "Неправильна дата\n" + LocalDate.now().plusDays(1).toString() + "\n";
+        String input = String.format("Неправильна дата%n%s%n", LocalDate.now().plusDays(1));
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
 
@@ -59,8 +59,8 @@ public class UtilitiesTest {
     }
 
     @Test
-    public void testDateInputPastDate() { // Неправильне введення - дата в минулому
-        String input = LocalDate.now().minusDays(1).toString() + "\n" + LocalDate.now().plusDays(1).toString() + "\n";
+    public void testDateInputPastDate() {
+        String input = String.format("%s%n%s%n", LocalDate.now().minusDays(1), LocalDate.now().plusDays(1));
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
 

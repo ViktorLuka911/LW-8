@@ -1,6 +1,7 @@
 package VoucherParameters;
 
 import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class VoucherTypeTest {
@@ -43,7 +44,7 @@ class VoucherTypeTest {
 
     @Test
     void testFromStringWithInvalidName() {
-        assertNull(VoucherType.fromString("Unknown"));
+        assertNull(VoucherType.fromString("Невідомий"));
     }
 
     @Test

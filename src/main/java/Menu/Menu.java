@@ -41,13 +41,13 @@ public class Menu {
     }
 
     public void printMenu() {
-        System.out.println("\t\t\t" + title + "\n");
+        System.out.printf("\t\t\t%s%n%n", title);
         int i = 0;
         while (i < commands.size()) {
-            System.out.println("\t " + (i + 1) + " - " + commands.get(i).getTitle());
+            System.out.printf("\t %d - %s%n", i + 1, commands.get(i).getTitle());
             i++;
         }
-        System.out.println("\t " + (i + 1) + " - Вийти з меню");
+        System.out.printf("\t %d - Вийти з меню%n", i + 1);
     }
 
     public String getTitle() {
@@ -56,14 +56,8 @@ public class Menu {
 
     public boolean selectCommand() {
         int choice = Utilities.getValidatedInput(1, 2);
-        boolean isRunning = true;
 
-        switch (choice) {
-            case 1 -> isRunning = true;
-            case 2 -> isRunning = false;
-        }
-
-        return isRunning;
+        return choice != 2;
     }
 
     public ArrayList<Command> getCommands() {
