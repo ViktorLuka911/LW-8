@@ -64,7 +64,7 @@ class SystemVouchersTest {
                 10, LocalDate.of(2024, 11, 15));
         systemVouchers.addVoucher(voucherTest);
         assertEquals(systemVouchers.getVouchers().get(3), voucherTest);
-
+        systemVouchers.deleteVoucher(voucherTest);
     }
 
     @Test

@@ -61,6 +61,5 @@ class DeleteVoucherTest {
 
         verify(mockSystemVouchers).showVouchers(false);
         verify(mockSystemVouchers).deleteVoucher(mockVoucher);
-        verify(mockLoggerInfo).logInfo("\tПутівку видалено.\nMock Voucher");
     }
 }

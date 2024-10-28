@@ -15,7 +15,7 @@ public class AddVoucherCommand extends Command {
         Voucher newVoucher = new Voucher();
         systemVouchers.addVoucher(newVoucher);
 
-        loggerInfo.logInfo(String.format("\tПутівку додано.%n%s", newVoucher.toStringLogger()));
+        loggerInfo.logInfo(String.format(" Путівку додано.%n%s", newVoucher.toStringLogger()));
 
         System.out.print("\n\tНатисніть Enter, щоб продовжити...");
         scanner.nextLine();
