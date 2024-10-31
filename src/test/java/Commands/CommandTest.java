@@ -6,11 +6,11 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class CommandTest {
 
-    private TestCommand command;
+    private Command command;
 
     @BeforeEach
     public void setUp() {
-        command = new TestCommand("Заголовок");
+        command = new Command("Заголовок");
     }
 
     @Test
@@ -24,5 +24,10 @@ class CommandTest {
     public void testExecute() {
         command.execute();
         assertTrue(true);
+    }
+
+    @Test void testSetTitle() {
+        command.setTitle("Новий заголовок");
+        assertEquals("Новий заголовок", command.getTitle());
     }
 }

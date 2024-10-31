@@ -3,7 +3,7 @@ package Commands;
 import Loggers.LoggerInfo;
 import SystemVouchers.SystemVouchers;
 
-public abstract class Command {
+public class Command {
 
     protected String title;
     protected SystemVouchers systemVouchers;
@@ -15,10 +15,14 @@ public abstract class Command {
         this.loggerInfo = LoggerInfo.getInstance();
     }
 
-    public abstract void execute();
+    public void execute() {};
 
     public String getTitle() {
         return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public void setVouchers(SystemVouchers systemVouchers) {

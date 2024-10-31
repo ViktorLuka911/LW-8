@@ -22,7 +22,6 @@ public class VoucherTest {
 
     @BeforeEach
     public void setUp() {
-        // Ініціалізація об'єкта Voucher перед кожним тестом
         voucher = new Voucher(Country.Italy, 2150,
                 VoucherType.Excursion, VoucherTransport.Train,
                 Nutrition.AllInclusive, Budget.Medium,
@@ -311,7 +310,6 @@ public class VoucherTest {
         voucher.selectTransport();
 
         int price = transport.getPrice();
-
 
         Assertions.assertEquals(200 + price, voucher.getPrice());
         Assertions.assertEquals(transport, voucher.getTransport());

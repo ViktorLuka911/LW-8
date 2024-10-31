@@ -50,9 +50,9 @@ class DeleteVoucherTest {
     void testExecuteWithVouchers() {
         InputStream in = new ByteArrayInputStream("1\n".getBytes());
         System.setIn(in);
+
         ListVouchers vouchers = new ListVouchers();
         Voucher mockVoucher = Mockito.mock(Voucher.class);
-        when(mockVoucher.toStringLogger()).thenReturn("Mock Voucher");
         vouchers.add(mockVoucher);
 
         when(mockSystemVouchers.getVouchers()).thenReturn(vouchers);

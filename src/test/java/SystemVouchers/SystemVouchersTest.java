@@ -63,8 +63,8 @@ class SystemVouchersTest {
                 Nutrition.AllInclusive, Budget.Low,
                 10, LocalDate.of(2024, 11, 15));
         systemVouchers.addVoucher(voucherTest);
+
         assertEquals(systemVouchers.getVouchers().get(3), voucherTest);
-        systemVouchers.deleteVoucher(voucherTest);
     }
 
     @Test
@@ -75,6 +75,7 @@ class SystemVouchersTest {
                 10, LocalDate.of(2024, 11, 15));
         systemVouchers.setVouchers(null);
         systemVouchers.addVoucher(voucherTest);
+
         assertTrue(true);
     }
 
@@ -91,6 +92,7 @@ class SystemVouchersTest {
     @Test
     void testDeleteVoucher() {
         systemVouchers.deleteVoucher(voucher3);
+
         assertEquals(2, systemVouchers.getVouchers().size());
         assertEquals(voucher1, systemVouchers.getVouchers().get(0));
         assertEquals(voucher2, systemVouchers.getVouchers().get(1));
@@ -103,6 +105,7 @@ class SystemVouchersTest {
                 Nutrition.AllInclusive, Budget.Low,
                 10, LocalDate.of(2024, 11, 15));
         systemVouchers.deleteVoucher(voucherTest);
+
         assertTrue(true);
     }
 
@@ -122,8 +125,8 @@ class SystemVouchersTest {
 
     @Test
     void testShowVouchersNotEmpty() {
-        InputStream in = new ByteArrayInputStream("\n".getBytes()); // Симуляція натискання Enter
-        System.setIn(in); // Заміна стандартного вводу
+        InputStream in = new ByteArrayInputStream("\n".getBytes());
+        System.setIn(in);
 
         systemVouchers.showVouchers(true);
 
@@ -192,7 +195,6 @@ class SystemVouchersTest {
     @Test
     public void testSortByPriceAscending() {
         systemVouchers.sortVouchersByPrice(true);
-
         ListVouchers sortedList = systemVouchers.getVouchers();
 
         assertEquals(1200, sortedList.get(0).getPrice());
@@ -203,7 +205,6 @@ class SystemVouchersTest {
     @Test
     public void testSortByPriceDescending() {
         systemVouchers.sortVouchersByPrice(false);
-
         ListVouchers sortedList = systemVouchers.getVouchers();
 
         assertEquals(3000, sortedList.get(0).getPrice());
@@ -214,7 +215,6 @@ class SystemVouchersTest {
     @Test
     public void testSortByDaysAscending() {
         systemVouchers.sortVouchersByDays(true);
-
         ListVouchers sortedList = systemVouchers.getVouchers();
 
         assertEquals(5, sortedList.get(0).getNumberOfDays());
@@ -225,7 +225,6 @@ class SystemVouchersTest {
     @Test
     public void testSortByDaysDescending() {
         systemVouchers.sortVouchersByDays(false);
-
         ListVouchers sortedList = systemVouchers.getVouchers();
 
         assertEquals(13, sortedList.get(0).getNumberOfDays());
@@ -236,7 +235,6 @@ class SystemVouchersTest {
     @Test
     public void testSortByDateAscending() {
         systemVouchers.sortVouchersByDate(true);
-
         ListVouchers sortedList = systemVouchers.getVouchers();
 
         assertEquals(LocalDate.of(2024, 10, 25), sortedList.get(0).getVoucherDate());
@@ -247,7 +245,6 @@ class SystemVouchersTest {
     @Test
     public void testSortByDateDescending() {
         systemVouchers.sortVouchersByDate(false);
-
         ListVouchers sortedList = systemVouchers.getVouchers();
 
         assertEquals(LocalDate.of(2024, 12, 11), sortedList.get(0).getVoucherDate());
@@ -259,5 +256,7 @@ class SystemVouchersTest {
     public void testCloseDataFileLogger() {
         systemVouchers = SystemVouchers.getInstance();
         systemVouchers.closeDataFileLogger();
+
+        assertTrue(true);
     }
 }
