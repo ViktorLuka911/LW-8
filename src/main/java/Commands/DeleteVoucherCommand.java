@@ -21,7 +21,7 @@ public class DeleteVoucherCommand extends Command {
 
         systemVouchers.showVouchers(false);
         int choice = Utilities.getValidatedInput(1, systemVouchers.getVouchers().size());
-        loggerInfo.logInfo(String.format(" Путівку видалено.%n%s", systemVouchers.getVouchers().get(choice - 1).toStringLogger()));
+        logger.logInfo(String.format(" Путівку видалено.%n%s", systemVouchers.getVouchers().get(choice - 1).toStringLogger()));
         systemVouchers.deleteVoucher(systemVouchers.getVouchers().get(choice - 1));
     }
 }

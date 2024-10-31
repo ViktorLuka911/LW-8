@@ -6,11 +6,11 @@ import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 
 public class ReferenceTest {
-    private ReferenceCommand referenceCommand;
+    private ReferenceCommand command;
 
     @BeforeEach
     void setUp() {
-        referenceCommand = new ReferenceCommand("Довідка");
+        command = new ReferenceCommand("Довідка");
     }
 
     @Test
@@ -18,7 +18,7 @@ public class ReferenceTest {
         InputStream in = new ByteArrayInputStream("\n".getBytes());
         System.setIn(in);
 
-        referenceCommand.execute();
+        command.execute();
 
         System.setIn(System.in);
     }

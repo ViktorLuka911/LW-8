@@ -43,7 +43,6 @@ public class VoucherTest {
 
     @Test
     public void testVoucherCreation() {
-        // Перевірка коректності створення об'єкта Voucher
         assertNotNull(voucher, "Об'єкт ваучера не повинен бути null");
         Assertions.assertEquals(Country.Italy, voucher.getCountry());
         Assertions.assertEquals(2150, voucher.getPrice());

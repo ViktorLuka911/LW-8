@@ -5,14 +5,18 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 public class DataFileLogger {
-
+    public LoggerInfo logger;
     public BufferedWriter writer = null;
+
+    public DataFileLogger() {
+        logger = LoggerInfo.getInstance();
+    }
 
     public void init(String filePath, boolean isFirst) {
         try {
             writer = (isFirst) ? new BufferedWriter(new FileWriter(filePath, true)) : new BufferedWriter(new FileWriter(filePath, false));
         } catch (IOException e) {
-            System.err.printf("\n\tНе вдалося відкрити файл для запису: %s%n", e.getMessage());
+            logger.logError("\n\tНе вдалося відкрити файл для запису: %s%n", e.getMessage());
         }
     }
 
@@ -23,7 +27,7 @@ public class DataFileLogger {
                 writer.newLine();
                 writer.flush();
             } catch (IOException e) {
-                System.err.printf("Помилка під час запису повідомлення: %s%n", e.getMessage());
+                logger.logError("Помилка під час запису повідомлення: %s%n", e.getMessage());
             }
         }
     }
@@ -33,7 +37,7 @@ public class DataFileLogger {
             try {
                 writer.close();
             } catch (IOException e) {
-                System.err.printf("Помилка під час закриття файлу: %s%n", e.getMessage());
+                logger.logError("Помилка під час закриття файлу: %s%n", e.getMessage());
             }
             writer = null;
         }

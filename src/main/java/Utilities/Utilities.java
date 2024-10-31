@@ -7,7 +7,7 @@ import java.time.format.DateTimeParseException;
 
 public class Utilities {
 
-    private static final LoggerInfo loggerInfo = LoggerInfo.getInstance();
+    private static final LoggerInfo logger = LoggerInfo.getInstance();
 
     public static int getValidatedInput(int min, int max) {
         Scanner scanner = new Scanner(System.in);
@@ -39,7 +39,7 @@ public class Utilities {
                 return input;
             } catch (DateTimeParseException e) {
                 System.out.print("\n\tНевірний формат дати. Спробуйте знову (формат: YYYY-MM-DD):");
-                loggerInfo.logError("Виникла помилка під час встановлення дати путівки.\n", String.format("Користувач ввів: %s.", input));
+                logger.logError("Виникла помилка під час встановлення дати путівки.\n", String.format("Користувач ввів: %s.", input));
             }
         }
     }
@@ -49,5 +49,4 @@ public class Utilities {
             System.out.println("\n") ;
         }
     }
-
 }

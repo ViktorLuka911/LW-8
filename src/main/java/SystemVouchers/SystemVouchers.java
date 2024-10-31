@@ -12,12 +12,12 @@ import java.util.Scanner;
 public class SystemVouchers {
     private static SystemVouchers instance;
     private ListVouchers vouchers;
-    private final LoggerInfo loggerInfo;
+    private final LoggerInfo logger;
     private final DataFileLogger dataFileLogger;
 
     private SystemVouchers() {
         vouchers = new ListVouchers();
-        this.loggerInfo = LoggerInfo.getInstance();
+        this.logger = LoggerInfo.getInstance();
         dataFileLogger = new DataFileLogger();
         dataFileLogger.init("logs/Datalog.txt", true);
         this.resetVouchers();
@@ -91,7 +91,7 @@ public class SystemVouchers {
                     buffer.add(Voucher.fromString(line));
                 }
             } catch (IOException e) {
-                loggerInfo.logError("Помилка при читанні файлу бази даних.", "");
+                logger.logError("Помилка при читанні файлу бази даних.", "");
             }
 
             buffer.getList().remove(selectedVoucher);
@@ -118,7 +118,7 @@ public class SystemVouchers {
             }
         } catch (IOException e) {
             System.out.println("\n\tСталася помилка при перезавантаженні ваучерів.\n");
-            loggerInfo.logError("Помилка при читанні файлу бази даних.", "");
+            logger.logError("Помилка при читанні файлу бази даних.", "");
         }
     }
 

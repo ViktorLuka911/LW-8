@@ -11,14 +11,14 @@ public class Menu {
     protected String title;
     protected ArrayList<Command> commands;
     protected ArrayList<Menu> subMenus;
-    protected LoggerInfo loggerInfo;
+    protected LoggerInfo logger;
     protected SystemVouchers systemVouchers;
 
     public Menu(String title, ArrayList<Command> commands, ArrayList<Menu> subMenus) {
         this.title = title;
         this.commands = commands;
         this.subMenus = subMenus;
-        this.loggerInfo = LoggerInfo.getInstance();
+        this.logger = LoggerInfo.getInstance();
         systemVouchers = SystemVouchers.getInstance();
     }
 
