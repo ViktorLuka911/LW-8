@@ -43,7 +43,6 @@ public class VoucherTest {
 
     @Test
     public void testVoucherCreation() {
-        // Перевірка коректності створення об'єкта Voucher
         assertNotNull(voucher, "Об'єкт ваучера не повинен бути null");
         Assertions.assertEquals(Country.Italy, voucher.getCountry());
         Assertions.assertEquals(2150, voucher.getPrice());
@@ -100,7 +99,7 @@ public class VoucherTest {
 
     @Test
     public void testToString() {
-        Assertions.assertEquals("Екскурсія                Італія              Потяг               Все включено        Середній       4       2024-11-11     2150           ", voucher.toString());
+        Assertions.assertEquals("Екскурсія                Італія              Потяг               Все включено        Середній       4       2024-11-11     2150   ", voucher.toString());
     }
 
     @Test

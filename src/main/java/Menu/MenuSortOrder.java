@@ -8,14 +8,14 @@ import java.util.Arrays;
 
 public class MenuSortOrder extends Menu {
 
-    public MenuSortOrder(String type) {
+    public MenuSortOrder(String title) {
 
         ArrayList<Menu> subMenus = new ArrayList<>();
 
         ArrayList<Command> commands = new ArrayList<>(
                 Arrays.asList(
-                        new SortCommand(type, "За зростанням"),
-                        new SortCommand(type, "За спаданням")
+                        new SortCommand(title, "За зростанням"),
+                        new SortCommand(title, "За спаданням")
                 )
         );
 
@@ -27,7 +27,7 @@ public class MenuSortOrder extends Menu {
         System.out.printf("\n\t\t\t%s%n%n", title);
         int i = 0;
         while (i < commands.size()) {
-            System.out.printf("\t %d - %s%n", i + 1, commands.get(i).getTitle());
+            System.out.printf("\t %d - %s%n", i + 1, ((SortCommand) commands.get(i)).getType());
             i++;
         }
     }

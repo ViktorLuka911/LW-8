@@ -9,19 +9,19 @@ import static org.mockito.Mockito.verify;
 
 class GoToMenuTest {
 
-    private GoToMenuCommand goToMenuCommand;
+    private GoToMenuCommand command;
     private Menu mockMenu;
 
     @BeforeEach
     void setUp() {
         mockMenu = Mockito.mock(Menu.class);
 
-        goToMenuCommand = new GoToMenuCommand("Перейти до меню", mockMenu);
+        command = new GoToMenuCommand("Перейти до меню", mockMenu);
     }
 
     @Test
     void testExecute() {
-        goToMenuCommand.execute();
+        command.execute();
 
         verify(mockMenu).startMenu();
     }

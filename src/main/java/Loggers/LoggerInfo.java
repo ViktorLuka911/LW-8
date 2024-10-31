@@ -6,8 +6,8 @@ import java.util.logging.FileHandler;
 
 public class LoggerInfo {
     private static LoggerInfo instance;
-    private Logger fileLogger = Logger.getLogger(LoggerInfo.class.getName());
-    private LoggerError errorLogger = new LoggerError();
+    private Logger fileLogger;
+    private LoggerError errorLogger;
 
     private LoggerInfo() {
         try {
@@ -16,13 +16,16 @@ public class LoggerInfo {
                 rootLogger.removeHandler(handler);
             }
 
+            fileLogger = Logger.getLogger(LoggerInfo.class.getName());
+            errorLogger = new LoggerError();
+
             FileHandler fileHandler = new FileHandler("logs/program.log", true);
             fileHandler.setFormatter(new CustomFormatter());
             fileLogger.addHandler(fileHandler);
             fileLogger.setUseParentHandlers(false);
 
         } catch (IOException e) {
-            errorLogger.sendError("Помилка відкриття файлу", e.getMessage());
+            logError("Помилка відкриття файлу", e.getMessage());
         }
     }
 

@@ -7,12 +7,12 @@ public class Command {
 
     protected String title;
     protected SystemVouchers systemVouchers;
-    protected LoggerInfo loggerInfo;
+    protected LoggerInfo logger;
 
     public Command(String title) {
         this.title = title;
         this.systemVouchers = SystemVouchers.getInstance();
-        this.loggerInfo = LoggerInfo.getInstance();
+        this.logger = LoggerInfo.getInstance();
     }
 
     public void execute() {};
@@ -29,7 +29,7 @@ public class Command {
         this.systemVouchers = systemVouchers;
     }
 
-    public void setLoggerInfo(LoggerInfo loggerInfo) {
-        this.loggerInfo = loggerInfo;
+    public void setLoggerInfo(LoggerInfo logger) {
+        this.logger = logger;
     }
 }

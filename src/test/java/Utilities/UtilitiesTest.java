@@ -3,8 +3,13 @@ package Utilities;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 import java.io.ByteArrayInputStream;
+import java.io.IOException;
 import java.io.InputStream;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.time.LocalDate;
+import java.util.List;
 
 public class UtilitiesTest {
 
@@ -29,7 +34,7 @@ public class UtilitiesTest {
     }
 
     @Test
-    public void testInputOutOfRange() {
+    public void testOutOfRangeInput() {
         String input = "15\n13\n";
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
@@ -49,13 +54,19 @@ public class UtilitiesTest {
     }
 
     @Test
-    public void testInvalidDateInput() {
+    public void testInvalidDateInput() throws IOException {
         String input = String.format("Неправильна дата%n%s%n", LocalDate.now().plusDays(1));
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
 
         String result = Utilities.getValidatedDateInput();
         assertEquals(LocalDate.now().plusDays(1).toString(), result);
+
+        Path path = Paths.get("logs/program.log");
+
+        List<String> lines = Files.readAllLines(path);
+        lines = lines.subList(0, lines.size() - 5);
+        Files.write(path, lines);
     }
 
     @Test

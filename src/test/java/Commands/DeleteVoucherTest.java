@@ -16,20 +16,20 @@ import static org.mockito.Mockito.*;
 
 class DeleteVoucherTest {
 
-    private DeleteVoucherCommand deleteVoucherCommand;
+    private DeleteVoucherCommand command;
     private SystemVouchers mockSystemVouchers;
-    private LoggerInfo mockLoggerInfo;
+    private LoggerInfo mocklogger;
     private Scanner mockScanner;
 
     @BeforeEach
     void setUp() {
         mockSystemVouchers = Mockito.mock(SystemVouchers.class);
-        mockLoggerInfo = Mockito.mock(LoggerInfo.class);
+        mocklogger = Mockito.mock(LoggerInfo.class);
         mockScanner = Mockito.mock(Scanner.class);
 
-        deleteVoucherCommand = new DeleteVoucherCommand("Видалити путівку");
-        deleteVoucherCommand.setVouchers(mockSystemVouchers);
-        deleteVoucherCommand.setLoggerInfo(mockLoggerInfo);
+        command = new DeleteVoucherCommand("Видалити путівку");
+        command.setVouchers(mockSystemVouchers);
+        command.setLoggerInfo(mocklogger);
     }
 
     @Test
@@ -40,10 +40,10 @@ class DeleteVoucherTest {
 
         when(mockSystemVouchers.getVouchers()).thenReturn(new ListVouchers());
 
-        deleteVoucherCommand.execute();
+        command.execute();
 
         verify(mockSystemVouchers, never()).showVouchers(false);
-        verify(mockLoggerInfo, never()).logInfo(anyString());
+        verify(mocklogger, never()).logInfo(anyString());
     }
 
     @Test
@@ -57,7 +57,7 @@ class DeleteVoucherTest {
 
         when(mockSystemVouchers.getVouchers()).thenReturn(vouchers);
 
-        deleteVoucherCommand.execute();
+        command.execute();
 
         verify(mockSystemVouchers).showVouchers(false);
         verify(mockSystemVouchers).deleteVoucher(mockVoucher);

@@ -16,22 +16,22 @@ class LoggerInfoTest {
     @Mock
     private LoggerError mockLoggerError;
 
-    private LoggerInfo loggerInfo;
+    private LoggerInfo logger;
 
     @BeforeEach
     void setUp() {
         MockitoAnnotations.openMocks(this);
-        loggerInfo = LoggerInfo.getInstance();
+        logger = LoggerInfo.getInstance();
 
-        loggerInfo.setFileLogger(mockLogger);
-        loggerInfo.setErrorLogger(mockLoggerError);
+        logger.setFileLogger(mockLogger);
+        logger.setErrorLogger(mockLoggerError);
     }
 
     @Test
     void testLogInfo() {
         String message = "Test info message";
 
-        loggerInfo.logInfo(message);
+        logger.logInfo(message);
 
         verify(mockLogger, times(1)).info(message);
     }
@@ -41,7 +41,7 @@ class LoggerInfoTest {
         String title = "Error title";
         String message = "Error message";
 
-        loggerInfo.logError(title, message);
+        logger.logError(title, message);
 
         verify(mockLogger, times(1)).severe(title + message);
 
@@ -52,10 +52,10 @@ class LoggerInfoTest {
     void testSetFileLogger() {
         Logger newMockLogger = mock(Logger.class);
 
-        loggerInfo.setFileLogger(newMockLogger);
+        logger.setFileLogger(newMockLogger);
 
         String message = "Тестовий логгер";
-        loggerInfo.logInfo(message);
+        logger.logInfo(message);
 
         verify(newMockLogger, times(1)).info(message);
     }
@@ -64,11 +64,11 @@ class LoggerInfoTest {
     void testSetErrorLogger() {
         LoggerError newMockLoggerError = mock(LoggerError.class);
 
-        loggerInfo.setErrorLogger(newMockLoggerError);
+        logger.setErrorLogger(newMockLoggerError);
 
         String title = "Заголовок помилки";
         String message = "Текст помилки";
-        loggerInfo.logError(title, message);
+        logger.logError(title, message);
 
         verify(newMockLoggerError, times(1)).sendError(title, message);
     }

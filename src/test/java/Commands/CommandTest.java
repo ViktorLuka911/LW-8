@@ -17,7 +17,7 @@ class CommandTest {
     public void testConstructor() {
         assertEquals("Заголовок", command.getTitle());
         assertNotNull(command.systemVouchers);
-        assertNotNull(command.loggerInfo);
+        assertNotNull(command.logger);
     }
 
     @Test

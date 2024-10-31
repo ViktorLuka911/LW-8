@@ -58,23 +58,54 @@ class SystemVouchersTest {
 
     @Test
     void testAddVoucher() {
-        Voucher voucherTest = new Voucher(Country.Italy, 2700,
+        InputStream in = new ByteArrayInputStream("\n".getBytes());
+        System.setIn(in);
+
+        Voucher voucher = new Voucher(Country.Italy, 2700,
                 VoucherType.Excursion, VoucherTransport.Train,
                 Nutrition.AllInclusive, Budget.Low,
                 10, LocalDate.of(2024, 11, 15));
-        systemVouchers.addVoucher(voucherTest);
+        systemVouchers.addVoucher(voucher);
 
-        assertEquals(systemVouchers.getVouchers().get(3), voucherTest);
+        assertEquals(systemVouchers.getVouchers().get(3), voucher);
+
+        systemVouchers.deleteVoucher(voucher);
+    }
+
+    @Test
+    void testDeleteVoucherFound() {
+        InputStream in = new ByteArrayInputStream("\n".getBytes());
+        System.setIn(in);
+
+        systemVouchers.deleteVoucher(voucher3);
+
+        assertEquals(2, systemVouchers.getVouchers().size());
+        assertEquals(voucher1, systemVouchers.getVouchers().get(0));
+        assertEquals(voucher2, systemVouchers.getVouchers().get(1));
+    }
+
+    @Test
+    void testDeleteVoucherNotFound() {
+        InputStream in = new ByteArrayInputStream("\n".getBytes());
+        System.setIn(in);
+
+        Voucher voucher = new Voucher(Country.Italy, 2700,
+                VoucherType.Excursion, VoucherTransport.Train,
+                Nutrition.AllInclusive, Budget.Low,
+                10, LocalDate.of(2024, 11, 15));
+        systemVouchers.deleteVoucher(voucher);
+
+        assertTrue(true);
     }
 
     @Test
     void testAddVoucherNull() {
-        Voucher voucherTest = new Voucher(Country.Italy, 2700,
+        Voucher voucher = new Voucher(Country.Italy, 2700,
                 VoucherType.Excursion, VoucherTransport.Train,
                 Nutrition.AllInclusive, Budget.Low,
                 10, LocalDate.of(2024, 11, 15));
         systemVouchers.setVouchers(null);
-        systemVouchers.addVoucher(voucherTest);
+        systemVouchers.addVoucher(voucher);
 
         assertTrue(true);
     }
@@ -87,26 +118,6 @@ class SystemVouchersTest {
         systemVouchers.setVouchers(list);
 
         assertEquals(list, systemVouchers.getVouchers());
-    }
-
-    @Test
-    void testDeleteVoucher() {
-        systemVouchers.deleteVoucher(voucher3);
-
-        assertEquals(2, systemVouchers.getVouchers().size());
-        assertEquals(voucher1, systemVouchers.getVouchers().get(0));
-        assertEquals(voucher2, systemVouchers.getVouchers().get(1));
-    }
-
-    @Test
-    void testDeleteVoucherNotFound() {
-        Voucher voucherTest = new Voucher(Country.Italy, 2700,
-                VoucherType.Excursion, VoucherTransport.Train,
-                Nutrition.AllInclusive, Budget.Low,
-                10, LocalDate.of(2024, 11, 15));
-        systemVouchers.deleteVoucher(voucherTest);
-
-        assertTrue(true);
     }
 
     @Test

@@ -12,12 +12,12 @@ import java.util.Scanner;
 public class SystemVouchers {
     private static SystemVouchers instance;
     private ListVouchers vouchers;
-    private final LoggerInfo loggerInfo;
+    private final LoggerInfo logger;
     private final DataFileLogger dataFileLogger;
 
     private SystemVouchers() {
         vouchers = new ListVouchers();
-        this.loggerInfo = LoggerInfo.getInstance();
+        this.logger = LoggerInfo.getInstance();
         dataFileLogger = new DataFileLogger();
         dataFileLogger.init("logs/Datalog.txt", true);
         this.resetVouchers();
@@ -39,17 +39,18 @@ public class SystemVouchers {
         if (vouchers.isEmpty()) {
             System.out.print("\n\tСписок вибраних путівок порожній.\n");
         } else {
-            String header = String.format("\n\t%-5s%-25s%-20s%-20s%-20s%-15s%-8s%-15s%-15s",
+            String header = String.format("\n\t|  %-5s%-25s%-20s%-20s%-20s%-15s%-8s%-15s%-7s |",
                     "№", "Тип", "Країна", "Транспорт", "Харчування", "Бюджет", "Дні", "Дата", "Ціна");
 
             StringBuilder border = new StringBuilder();
-            border.append("-".repeat(Math.max(0, header.length() - 9)));
+            border.append("-".repeat(Math.max(0, header.length() - 2)));
+            System.out.printf("\n\t%s", border);
             System.out.printf("\t%s%n", header);
             System.out.printf("\t%s%n", border);
 
             int counter = 1;
             for (Voucher voucher : vouchers.getList()) {
-                System.out.printf("\t%-5d %s%n", counter, voucher);
+                System.out.printf("\t| %-5d %s |%n", counter, voucher);
                 counter++;
             }
 
@@ -91,7 +92,7 @@ public class SystemVouchers {
                     buffer.add(Voucher.fromString(line));
                 }
             } catch (IOException e) {
-                loggerInfo.logError("Помилка при читанні файлу бази даних.", "");
+                logger.logError("Помилка при читанні файлу бази даних.", "");
             }
 
             buffer.getList().remove(selectedVoucher);
@@ -106,6 +107,8 @@ public class SystemVouchers {
         } else {
             System.out.println("\n\tПутівку не знайдено.");
         }
+
+        showVouchers(true);
     }
 
     public void resetVouchers() {
@@ -118,7 +121,7 @@ public class SystemVouchers {
             }
         } catch (IOException e) {
             System.out.println("\n\tСталася помилка при перезавантаженні ваучерів.\n");
-            loggerInfo.logError("Помилка при читанні файлу бази даних.", "");
+            logger.logError("Помилка при читанні файлу бази даних.", "");
         }
     }
 
