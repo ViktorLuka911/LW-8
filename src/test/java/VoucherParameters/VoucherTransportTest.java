@@ -16,7 +16,7 @@ class VoucherTransportTest {
     }
 
     @Test
-    void testFromStringWithValidNames() {
+    void testFromStringValid() {
         assertEquals(VoucherTransport.Plane, VoucherTransport.fromString("Літак"));
         assertEquals(VoucherTransport.Train, VoucherTransport.fromString("Потяг"));
         assertEquals(VoucherTransport.Bus, VoucherTransport.fromString("Автобус"));
@@ -25,8 +25,8 @@ class VoucherTransportTest {
     }
 
     @Test
-    void testFromStringWithInvalidName() {
-        assertNull(VoucherTransport.fromString("Unknown"));
+    void testFromStringInvalid() {
+        assertNull(VoucherTransport.fromString("Невідомий"));
     }
 
     @Test

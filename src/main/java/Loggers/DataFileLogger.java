@@ -28,7 +28,6 @@ public class DataFileLogger {
         }
     }
 
-    // Закрити потік виведення
      public void close() {
         if (writer != null) {
             try {

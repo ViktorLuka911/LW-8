@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class CountryTest {
 
     @Test
-    void testFromStringWithValidNames() {
+    void testFromStringValid() {
         assertEquals(Country.France, Country.fromString("Франція"));
         assertEquals(Country.Germany, Country.fromString("Німеччина"));
         assertEquals(Country.Italy, Country.fromString("Італія"));
@@ -25,8 +25,8 @@ class CountryTest {
     }
 
     @Test
-    void testFromStringWithInvalidName() {
-        assertNull(Country.fromString("Unknown"));
+    void testFromStringInvalid() {
+        assertNull(Country.fromString("Невідомий"));
     }
 
     @Test

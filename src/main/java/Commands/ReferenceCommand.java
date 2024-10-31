@@ -10,7 +10,8 @@ public class ReferenceCommand extends Command {
 
     @Override
     public void execute() {
-        Scanner scanner1 = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
+
         System.out.println("\nФункціонал програми:\n");
         System.out.println("1. Додати путівку      - Введіти дані про нову путівку.");
         System.out.println("2. Фільтрувати путівки - Виберіть критерії для відбору: країна, тип, транспорт, харчування, бюджет.");
@@ -23,15 +24,15 @@ public class ReferenceCommand extends Command {
         System.out.println("\t------------------------------------------           --------------------------------------------");
         System.out.println("\t|              Головне меню              |    |----→ | Послідовність введення даних про путівку |");
         System.out.println("\t------------------------------------------    |      --------------------------------------------");
-        System.out.println("\t| * Довідка                              |    |      | * Ввести ім'я                            |");
-        System.out.println("\t| * Перейти до путівок                   |    |      | * Вибрати країну                         |");
-        System.out.println("\t------------------------------------------    |      | * Вибрати тип путівки                    |");
-        System.out.println("\t                     |                        |      | * Вибрати транспорт                      |");
+        System.out.println("\t| * Довідка                              |    |      | * Вибрати країну                         |");
+        System.out.println("\t| * Перейти до путівок                   |    |      | * Вибрати тип путівки                    |");
+        System.out.println("\t------------------------------------------    |      | * Вибрати транспорт                      |");
         System.out.println("\t                     |                        |      | * Вибрати харчування                     |");
         System.out.println("\t                     |                        |      | * Вибрати тип бюджету                    |");
         System.out.println("\t                     |                        |      | * Ввести кількість днів                  |");
         System.out.println("\t                     |                        |      | * Ввести дату путівки                    |");
-        System.out.println("\t                     ↓                        |      --------------------------------------------");
+        System.out.println("\t                     |                        |      --------------------------------------------");
+        System.out.println("\t                     ↓                        |");
         System.out.println("\t------------------------------------------    |");
         System.out.println("\t|           Меню вибраних путівок        |    |");
         System.out.println("\t------------------------------------------    |");
@@ -48,7 +49,6 @@ public class ReferenceCommand extends Command {
         System.out.println("\t------------------------------------------          | * Переглянути путівки за бюджетом      |");
         System.out.println("\t| Меню сортування путівок за параметрами |          ------------------------------------------");
         System.out.println("\t------------------------------------------");
-        System.out.println("\t| * Сортувати путівки за назвою          |");
         System.out.println("\t| * Сортувати путівки за кількістю днів  |");
         System.out.println("\t| * Сортувати путівки за ціною           |");
         System.out.println("\t| * Сортувати путівки за датою           |");
@@ -63,6 +63,6 @@ public class ReferenceCommand extends Command {
         System.out.println("\t------------------------------------------\n");
 
         System.out.print("\n\tНатисніть Enter, щоб продовжити...");
-        scanner1.nextLine();
+        scanner.nextLine();
     }
 }

@@ -18,7 +18,6 @@ public class ListVouchersTest {
 
     @BeforeEach
     public void setUp() {
-
         list = new ListVouchers();
 
         voucher1 = new Voucher(Country.Italy, 2600,
@@ -44,8 +43,15 @@ public class ListVouchersTest {
     @Test
     public void testIsEmpty() {
         assertFalse(list.isEmpty());
+
         list.clear();
+
         assertTrue(list.isEmpty());
+    }
+
+    @Test
+    public void testGet() {
+        assertEquals(voucher1, list.get(0));
     }
 
     @Test
@@ -59,15 +65,10 @@ public class ListVouchersTest {
                 VoucherType.Excursion, VoucherTransport.Train,
                 Nutrition.AllInclusive, Budget.Medium,
                 4, LocalDate.of(2024, 11, 11));
-
         list.add(voucher);
+
         assertEquals(4, list.size());
         assertEquals(voucher, list.get(3));
-    }
-
-    @Test
-    public void testGet() {
-        assertEquals(voucher1, list.get(0));
     }
 
     @Test
@@ -80,6 +81,7 @@ public class ListVouchersTest {
     @Test
     public void testClear() {
         list.clear();
+
         assertTrue(list.isEmpty());
     }
 

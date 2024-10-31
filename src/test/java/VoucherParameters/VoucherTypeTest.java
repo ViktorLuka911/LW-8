@@ -31,7 +31,7 @@ class VoucherTypeTest {
     }
 
     @Test
-    void testFromStringWithValidNames() {
+    void testFromStringValid() {
         assertEquals(VoucherType.Recreation, VoucherType.fromString("Відпочинок"));
         assertEquals(VoucherType.Excursion, VoucherType.fromString("Екскурсія"));
         assertEquals(VoucherType.Treatment, VoucherType.fromString("Лікування"));
@@ -43,7 +43,7 @@ class VoucherTypeTest {
     }
 
     @Test
-    void testFromStringWithInvalidName() {
+    void testFromStringInvalid() {
         assertNull(VoucherType.fromString("Невідомий"));
     }
 

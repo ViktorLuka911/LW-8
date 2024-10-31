@@ -28,8 +28,8 @@ class SelectParametersTest {
     void testSelectCountry() {
         utilitiesMock.when(() -> Utilities.getValidatedInput(1, Country.values().length))
                 .thenReturn(1);
-
         Country selectedCountry = SelectParameters.selectCountry();
+
         assertEquals(Country.values()[0], selectedCountry);
     }
 
@@ -37,8 +37,8 @@ class SelectParametersTest {
     void testSelectVoucherType() {
         utilitiesMock.when(() -> Utilities.getValidatedInput(1, VoucherType.values().length))
                 .thenReturn(2);
-
         VoucherType selectedType = SelectParameters.selectVoucherType();
+
         assertEquals(VoucherType.values()[1], selectedType);
     }
 
@@ -46,8 +46,8 @@ class SelectParametersTest {
     void testSelectTransport() {
         utilitiesMock.when(() -> Utilities.getValidatedInput(1, VoucherTransport.values().length))
                 .thenReturn(3);
-
         VoucherTransport selectedTransport = SelectParameters.selectTransport();
+
         assertEquals(VoucherTransport.values()[2], selectedTransport);
     }
 
@@ -55,8 +55,8 @@ class SelectParametersTest {
     void testSelectNutrition() {
         utilitiesMock.when(() -> Utilities.getValidatedInput(1, Nutrition.values().length))
                 .thenReturn(1);
-
         Nutrition selectedNutrition = SelectParameters.selectNutrition();
+
         assertEquals(Nutrition.values()[0], selectedNutrition);
     }
 
@@ -64,8 +64,8 @@ class SelectParametersTest {
     void testSelectBudget() {
         utilitiesMock.when(() -> Utilities.getValidatedInput(1, Budget.values().length))
                 .thenReturn(2);
-
         Budget selectedBudget = SelectParameters.selectBudget();
+
         assertEquals(Budget.values()[1], selectedBudget);
     }
 }

@@ -14,15 +14,15 @@ public class BudgetTest {
     }
 
     @Test
-    void testFromStringWithValidNames() {
+    void testFromStringValid() {
         assertEquals(Budget.Low, Budget.fromString("Низький"));
         assertEquals(Budget.Medium, Budget.fromString("Середній"));
         assertEquals(Budget.High, Budget.fromString("Високий"));
     }
 
     @Test
-    void testFromStringWithInvalidName() {
-        assertNull(Budget.fromString("Середний"));
+    void testFromStringInvalid() {
+        assertNull(Budget.fromString("Невідомий"));
     }
 
     @Test

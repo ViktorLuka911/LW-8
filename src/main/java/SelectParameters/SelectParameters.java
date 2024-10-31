@@ -4,6 +4,7 @@ import Utilities.Utilities;
 import VoucherParameters.*;
 
 public class SelectParameters {
+
     static public Country selectCountry() {
         System.out.println("\n\n\tВиберіть країну:\n");
 

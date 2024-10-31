@@ -13,14 +13,14 @@ class NutritionTest {
     }
 
     @Test
-    void testFromStringWithValidNames() {
+    void testFromStringValid() {
         assertEquals(Nutrition.AllInclusive, Nutrition.fromString("Все включено"));
         assertEquals(Nutrition.NoMeals, Nutrition.fromString("Без харчування"));
     }
 
     @Test
-    void testFromStringWithInvalidName() {
-        assertNull(Nutrition.fromString("Unknown"));
+    void testFromStringInvalid() {
+        assertNull(Nutrition.fromString("Невідомий"));
     }
 
     @Test

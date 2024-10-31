@@ -7,7 +7,6 @@ import java.util.Properties;
 public class LoggerError {
 
     public void sendError(String subject, String messageBody) {
-        // Властивості для SMTP-сервера
         Properties props = new Properties();
         props.put("mail.smtp.host", "smtp.gmail.com");
         props.put("mail.smtp.port", "587");

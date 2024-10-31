@@ -35,7 +35,7 @@ class DeleteVoucherTest {
     @Test
     void testExecuteWhenNoVouchers() {
         InputStream in = new ByteArrayInputStream("\n".getBytes());
-        System.setIn(in); // Заміна стандартного вводу
+        System.setIn(in);
         when(mockScanner.nextLine()).thenReturn("\n");
 
         when(mockSystemVouchers.getVouchers()).thenReturn(new ListVouchers());
