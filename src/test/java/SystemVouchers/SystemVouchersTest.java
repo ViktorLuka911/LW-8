@@ -58,6 +58,9 @@ class SystemVouchersTest {
 
     @Test
     void testAddVoucher() {
+        InputStream in = new ByteArrayInputStream("\n".getBytes());
+        System.setIn(in);
+
         Voucher voucher = new Voucher(Country.Italy, 2700,
                 VoucherType.Excursion, VoucherTransport.Train,
                 Nutrition.AllInclusive, Budget.Low,
@@ -71,6 +74,9 @@ class SystemVouchersTest {
 
     @Test
     void testDeleteVoucherFound() {
+        InputStream in = new ByteArrayInputStream("\n".getBytes());
+        System.setIn(in);
+
         systemVouchers.deleteVoucher(voucher3);
 
         assertEquals(2, systemVouchers.getVouchers().size());
@@ -80,6 +86,9 @@ class SystemVouchersTest {
 
     @Test
     void testDeleteVoucherNotFound() {
+        InputStream in = new ByteArrayInputStream("\n".getBytes());
+        System.setIn(in);
+
         Voucher voucher = new Voucher(Country.Italy, 2700,
                 VoucherType.Excursion, VoucherTransport.Train,
                 Nutrition.AllInclusive, Budget.Low,
