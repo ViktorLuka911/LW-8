@@ -4,7 +4,7 @@ public class SortCommand extends Command {
 
     private String type;
 
-    public SortCommand(String type, String title) {
+    public SortCommand(String title, String type) {
         super(title);
         this.type = type;
     }

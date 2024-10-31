@@ -39,17 +39,18 @@ public class SystemVouchers {
         if (vouchers.isEmpty()) {
             System.out.print("\n\tСписок вибраних путівок порожній.\n");
         } else {
-            String header = String.format("\n\t%-5s%-25s%-20s%-20s%-20s%-15s%-8s%-15s%-15s",
+            String header = String.format("\n\t|  %-5s%-25s%-20s%-20s%-20s%-15s%-8s%-15s%-7s |",
                     "№", "Тип", "Країна", "Транспорт", "Харчування", "Бюджет", "Дні", "Дата", "Ціна");
 
             StringBuilder border = new StringBuilder();
-            border.append("-".repeat(Math.max(0, header.length() - 9)));
+            border.append("-".repeat(Math.max(0, header.length() - 2)));
+            System.out.printf("\n\t%s", border);
             System.out.printf("\t%s%n", header);
             System.out.printf("\t%s%n", border);
 
             int counter = 1;
             for (Voucher voucher : vouchers.getList()) {
-                System.out.printf("\t%-5d %s%n", counter, voucher);
+                System.out.printf("\t| %-5d %s |%n", counter, voucher);
                 counter++;
             }
 
@@ -106,6 +107,8 @@ public class SystemVouchers {
         } else {
             System.out.println("\n\tПутівку не знайдено.");
         }
+
+        showVouchers(true);
     }
 
     public void resetVouchers() {

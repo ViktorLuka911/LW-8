@@ -93,7 +93,7 @@ public class Voucher {
 
     @Override
     public String toString() {
-        String format = "%-25s%-20s%-20s%-20s%-15s%-8s%-15s%-15s";
+        String format = "%-25s%-20s%-20s%-20s%-15s%-8s%-15s%-7s";
 
         return String.format(format,
                 type,

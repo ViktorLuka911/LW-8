@@ -60,7 +60,7 @@ public class Menu {
         return choice != 2;
     }
 
-    public ArrayList<Command> getCommands() {
+    public ArrayList<? extends Command> getCommands() {
         return commands;
     }
 
