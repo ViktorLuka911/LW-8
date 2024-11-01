@@ -1,8 +1,8 @@
 package VoucherParameters;
 
 public enum Nutrition {
-    AllInclusive("Все включено", 100),
-    NoMeals("Без харчування", 0);
+    ALL_INCLUSIVE("Все включено", 100),
+    NONE("Без харчування", 0);
 
     private final String translate;
     private final int price;

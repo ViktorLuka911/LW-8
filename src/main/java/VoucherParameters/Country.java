@@ -1,20 +1,20 @@
 package VoucherParameters;
 
 public enum Country {
-    France("Франція"),
-    Germany("Німеччина"),
-    Italy("Італія"),
-    Spain("Іспанія"),
+    FRANCE("Франція"),
+    GERMANY("Німеччина"),
+    ITALY("Італія"),
+    SPAIN("Іспанія"),
     USA("США"),
-    Canada("Канада"),
-    Brazil("Бразилія"),
-    Australia("Австралія"),
-    Japan("Японія"),
-    Egypt("Єгипет"),
-    Turkey("Туреччина"),
-    UnitedKingdom("Велика Британія"),
-    Sweden("Швеція"),
-    Norway("Норвегія");
+    CANADA("Канада"),
+    BRAZIL("Бразилія"),
+    AUSTRALIA("Австралія"),
+    JAPAN("Японія"),
+    EGYPT("Єгипет"),
+    TURKEY("Туреччина"),
+    UNITED_KINGDOM("Велика Британія"),
+    SWEDEN("Швеція"),
+    NORWAY("Норвегія");
 
     private final String translate;
 

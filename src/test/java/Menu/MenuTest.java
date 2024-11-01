@@ -37,19 +37,8 @@ class MenuTest {
     }
 
     @Test
-    void testStartMenuEmptyVouchers() {
-        menu.systemVouchers.getVouchers().clear();
-        String input = "1\n";
-        System.setIn(new ByteArrayInputStream(input.getBytes()));
-
-        menu.startMenu();
-
-        assertTrue(true);
-    }
-
-    @Test
-    void testStartMenuNotEmptyVouchers() {
-        String input = "1\n2\n";
+    void testStartMenu() {
+        String input = "2\n";
         System.setIn(new ByteArrayInputStream(input.getBytes()));
 
         menu.startMenu();

@@ -9,7 +9,6 @@ import java.time.LocalDate;
 public class Voucher {
     private Country country;
     private int price;
-
     private VoucherType type;
     private VoucherTransport transport;
     private Nutrition nutrition;

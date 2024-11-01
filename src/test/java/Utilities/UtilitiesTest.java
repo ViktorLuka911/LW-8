@@ -62,7 +62,7 @@ public class UtilitiesTest {
         String result = Utilities.getValidatedDateInput();
         assertEquals(LocalDate.now().plusDays(1).toString(), result);
 
-        Path path = Paths.get("logs/program.log");
+        Path path = Paths.get("Logs/Program.log");
 
         List<String> lines = Files.readAllLines(path);
         lines = lines.subList(0, lines.size() - 5);
@@ -70,13 +70,19 @@ public class UtilitiesTest {
     }
 
     @Test
-    public void testDateInputPastDate() {
+    public void testDateInputPastDate() throws IOException {
         String input = String.format("%s%n%s%n", LocalDate.now().minusDays(1), LocalDate.now().plusDays(1));
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
 
         String result = Utilities.getValidatedDateInput();
         assertEquals(LocalDate.now().plusDays(1).toString(), result);
+
+        Path path = Paths.get("Logs/Program.log");
+
+        List<String> lines = Files.readAllLines(path);
+        lines = lines.subList(0, lines.size() - 5);
+        Files.write(path, lines);
     }
 
     @Test

@@ -1,11 +1,11 @@
 package VoucherParameters;
 
 public enum VoucherTransport {
-    Plane("Літак", 300),
-    Train("Потяг", 150),
-    Bus("Автобус", 100),
-    Car("Машина", 50),
-    None("Відсутній", 0);
+    PLANE("Літак", 300),
+    TRAIN("Потяг", 150),
+    BUS("Автобус", 100),
+    CAR("Машина", 50),
+    NONE("Відсутній", 0);
 
     private final String translate;
     private final int price;

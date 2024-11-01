@@ -20,19 +20,19 @@ public class ListVouchersTest {
     public void setUp() {
         list = new ListVouchers();
 
-        voucher1 = new Voucher(Country.Italy, 2600,
-                VoucherType.Excursion, VoucherTransport.Train,
-                Nutrition.AllInclusive, Budget.Low,
+        voucher1 = new Voucher(Country.ITALY, 2600,
+                VoucherType.EXCURSION, VoucherTransport.TRAIN,
+                Nutrition.ALL_INCLUSIVE, Budget.LOW,
                 10, LocalDate.of(2024, 11, 15));
 
-        voucher2 = new Voucher(Country.Germany, 1200,
-                VoucherType.Recreation, VoucherTransport.Plane,
-                Nutrition.AllInclusive, Budget.Medium,
+        voucher2 = new Voucher(Country.GERMANY, 1200,
+                VoucherType.RECREATION, VoucherTransport.PLANE,
+                Nutrition.ALL_INCLUSIVE, Budget.MEDIUM,
                 13, LocalDate.of(2024, 12, 11));
 
-        voucher3 = new Voucher(Country.Italy, 3000,
-                VoucherType.Shopping, VoucherTransport.Plane,
-                Nutrition.NoMeals, Budget.Medium,
+        voucher3 = new Voucher(Country.ITALY, 3000,
+                VoucherType.SHOPPING, VoucherTransport.PLANE,
+                Nutrition.NONE, Budget.MEDIUM,
                 5, LocalDate.of(2024, 10, 25));
 
         list.add(voucher1);
@@ -61,9 +61,9 @@ public class ListVouchersTest {
 
     @Test
     public void testAdd() {
-        Voucher voucher = new Voucher(Country.Italy, 2150,
-                VoucherType.Excursion, VoucherTransport.Train,
-                Nutrition.AllInclusive, Budget.Medium,
+        Voucher voucher = new Voucher(Country.ITALY, 2150,
+                VoucherType.EXCURSION, VoucherTransport.TRAIN,
+                Nutrition.ALL_INCLUSIVE, Budget.MEDIUM,
                 4, LocalDate.of(2024, 11, 11));
         list.add(voucher);
 
@@ -87,7 +87,7 @@ public class ListVouchersTest {
 
     @Test
     public void testGetByType() {
-        ListVouchers filteredVouchers = list.getByType(VoucherType.Excursion);
+        ListVouchers filteredVouchers = list.getByType(VoucherType.EXCURSION);
 
         assertEquals(1, filteredVouchers.size());
         assertTrue(filteredVouchers.getList().contains(voucher1));
@@ -95,7 +95,7 @@ public class ListVouchersTest {
 
     @Test
     public void testGetByCountry() {
-        ListVouchers filteredVouchers = list.getByCountry(Country.Italy);
+        ListVouchers filteredVouchers = list.getByCountry(Country.ITALY);
 
         assertEquals(2, filteredVouchers.size());
         assertTrue(filteredVouchers.getList().contains(voucher1));
@@ -104,7 +104,7 @@ public class ListVouchersTest {
 
     @Test
     public void testGetByTransport() {
-        ListVouchers filteredVouchers = list.getByTransport(VoucherTransport.Plane);
+        ListVouchers filteredVouchers = list.getByTransport(VoucherTransport.PLANE);
 
         assertEquals(2, filteredVouchers.size());
         assertTrue(filteredVouchers.getList().contains(voucher2));
@@ -113,7 +113,7 @@ public class ListVouchersTest {
 
     @Test
     public void testGetByNutrition() {
-        ListVouchers filteredVouchers = list.getByNutrition(Nutrition.AllInclusive);
+        ListVouchers filteredVouchers = list.getByNutrition(Nutrition.ALL_INCLUSIVE);
 
         assertEquals(2, filteredVouchers.size());
         assertTrue(filteredVouchers.getList().contains(voucher1));
@@ -122,7 +122,7 @@ public class ListVouchersTest {
 
     @Test
     public void testGetByBudget() {
-        ListVouchers filteredVouchers = list.getByBudget(Budget.Medium);
+        ListVouchers filteredVouchers = list.getByBudget(Budget.MEDIUM);
 
         assertEquals(2, filteredVouchers.size());
         assertTrue(filteredVouchers.getList().contains(voucher2));

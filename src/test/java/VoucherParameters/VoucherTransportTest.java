@@ -8,20 +8,20 @@ class VoucherTransportTest {
 
     @Test
     void testGetPrice() {
-        assertEquals(300, VoucherTransport.Plane.getPrice());
-        assertEquals(150, VoucherTransport.Train.getPrice());
-        assertEquals(100, VoucherTransport.Bus.getPrice());
-        assertEquals(50, VoucherTransport.Car.getPrice());
-        assertEquals(0, VoucherTransport.None.getPrice());
+        assertEquals(300, VoucherTransport.PLANE.getPrice());
+        assertEquals(150, VoucherTransport.TRAIN.getPrice());
+        assertEquals(100, VoucherTransport.BUS.getPrice());
+        assertEquals(50, VoucherTransport.CAR.getPrice());
+        assertEquals(0, VoucherTransport.NONE.getPrice());
     }
 
     @Test
     void testFromStringValid() {
-        assertEquals(VoucherTransport.Plane, VoucherTransport.fromString("Літак"));
-        assertEquals(VoucherTransport.Train, VoucherTransport.fromString("Потяг"));
-        assertEquals(VoucherTransport.Bus, VoucherTransport.fromString("Автобус"));
-        assertEquals(VoucherTransport.Car, VoucherTransport.fromString("Машина"));
-        assertEquals(VoucherTransport.None, VoucherTransport.fromString("Відсутній"));
+        assertEquals(VoucherTransport.PLANE, VoucherTransport.fromString("Літак"));
+        assertEquals(VoucherTransport.TRAIN, VoucherTransport.fromString("Потяг"));
+        assertEquals(VoucherTransport.BUS, VoucherTransport.fromString("Автобус"));
+        assertEquals(VoucherTransport.CAR, VoucherTransport.fromString("Машина"));
+        assertEquals(VoucherTransport.NONE, VoucherTransport.fromString("Відсутній"));
     }
 
     @Test
@@ -31,10 +31,10 @@ class VoucherTransportTest {
 
     @Test
     void testToString() {
-        assertEquals("Літак", VoucherTransport.Plane.toString());
-        assertEquals("Потяг", VoucherTransport.Train.toString());
-        assertEquals("Автобус", VoucherTransport.Bus.toString());
-        assertEquals("Машина", VoucherTransport.Car.toString());
-        assertEquals("Відсутній", VoucherTransport.None.toString());
+        assertEquals("Літак", VoucherTransport.PLANE.toString());
+        assertEquals("Потяг", VoucherTransport.TRAIN.toString());
+        assertEquals("Автобус", VoucherTransport.BUS.toString());
+        assertEquals("Машина", VoucherTransport.CAR.toString());
+        assertEquals("Відсутній", VoucherTransport.NONE.toString());
     }
 }

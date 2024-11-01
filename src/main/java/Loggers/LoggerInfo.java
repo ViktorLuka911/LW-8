@@ -19,7 +19,7 @@ public class LoggerInfo {
             fileLogger = Logger.getLogger(LoggerInfo.class.getName());
             errorLogger = new LoggerError();
 
-            FileHandler fileHandler = new FileHandler("logs/program.log", true);
+            FileHandler fileHandler = new FileHandler("logs/Program.log", true);
             fileHandler.setFormatter(new CustomFormatter());
             fileLogger.addHandler(fileHandler);
             fileLogger.setUseParentHandlers(false);

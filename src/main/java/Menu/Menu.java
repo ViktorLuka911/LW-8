@@ -26,13 +26,6 @@ public class Menu {
         boolean isRunning;
         Scanner scanner = new Scanner(System.in);
 
-        if (systemVouchers.getVouchers().isEmpty() && !(this instanceof MenuMain)) {
-            System.out.println("\n\tСписок вибраних путівок порожній.");
-            System.out.print("\n\tНатисніть Enter, щоб продовжити...");
-            scanner.nextLine();
-            return;
-        }
-
         do {
             Utilities.clearConsole();
             this.printMenu();
@@ -60,7 +53,7 @@ public class Menu {
         return choice != 2;
     }
 
-    public ArrayList<? extends Command> getCommands() {
+    public ArrayList<Command> getCommands() {
         return commands;
     }
 

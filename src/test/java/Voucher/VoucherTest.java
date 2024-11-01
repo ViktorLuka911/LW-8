@@ -22,9 +22,9 @@ public class VoucherTest {
 
     @BeforeEach
     public void setUp() {
-        voucher = new Voucher(Country.Italy, 2150,
-                VoucherType.Excursion, VoucherTransport.Train,
-                Nutrition.AllInclusive, Budget.Medium,
+        voucher = new Voucher(Country.ITALY, 2150,
+                VoucherType.EXCURSION, VoucherTransport.TRAIN,
+                Nutrition.ALL_INCLUSIVE, Budget.MEDIUM,
                 4, LocalDate.of(2024, 11, 11));
         utilitiesMock = mockStatic(Utilities.class);
         selectParameters = mockStatic(SelectParameters.class);
@@ -44,20 +44,20 @@ public class VoucherTest {
     @Test
     public void testVoucherCreation() {
         assertNotNull(voucher, "Об'єкт ваучера не повинен бути null");
-        Assertions.assertEquals(Country.Italy, voucher.getCountry());
+        Assertions.assertEquals(Country.ITALY, voucher.getCountry());
         Assertions.assertEquals(2150, voucher.getPrice());
-        Assertions.assertEquals(VoucherType.Excursion, voucher.getType());
-        Assertions.assertEquals(VoucherTransport.Train, voucher.getTransport());
-        Assertions.assertEquals(Budget.Medium, voucher.getBudget());
-        Assertions.assertEquals(Nutrition.AllInclusive, voucher.getNutrition());
+        Assertions.assertEquals(VoucherType.EXCURSION, voucher.getType());
+        Assertions.assertEquals(VoucherTransport.TRAIN, voucher.getTransport());
+        Assertions.assertEquals(Budget.MEDIUM, voucher.getBudget());
+        Assertions.assertEquals(Nutrition.ALL_INCLUSIVE, voucher.getNutrition());
         Assertions.assertEquals(4, voucher.getNumberOfDays());
         Assertions.assertEquals(LocalDate.of(2024, 11, 11), voucher.getVoucherDate());
     }
 
     @Test
     public void testSetCountry() {
-        voucher.setCountry(Country.Italy);
-        Assertions.assertEquals(Country.Italy, voucher.getCountry());
+        voucher.setCountry(Country.ITALY);
+        Assertions.assertEquals(Country.ITALY, voucher.getCountry());
     }
 
     @Test
@@ -68,26 +68,26 @@ public class VoucherTest {
 
     @Test
     public void testSetType() {
-        voucher.setType(VoucherType.Excursion);
-        Assertions.assertEquals(VoucherType.Excursion, voucher.getType());
+        voucher.setType(VoucherType.EXCURSION);
+        Assertions.assertEquals(VoucherType.EXCURSION, voucher.getType());
     }
 
     @Test
     public void testSetTransport() {
-        voucher.setTransport(VoucherTransport.Bus);
-        Assertions.assertEquals(VoucherTransport.Bus, voucher.getTransport());
+        voucher.setTransport(VoucherTransport.BUS);
+        Assertions.assertEquals(VoucherTransport.BUS, voucher.getTransport());
     }
 
     @Test
     public void testSetBudget() {
-        voucher.setBudget(Budget.High);
-        Assertions.assertEquals(Budget.High, voucher.getBudget());
+        voucher.setBudget(Budget.HIGH);
+        Assertions.assertEquals(Budget.HIGH, voucher.getBudget());
     }
 
     @Test
     public void testSetNutrition() {
-        voucher.setNutrition(Nutrition.AllInclusive);
-        Assertions.assertEquals(Nutrition.AllInclusive, voucher.getNutrition());
+        voucher.setNutrition(Nutrition.ALL_INCLUSIVE);
+        Assertions.assertEquals(Nutrition.ALL_INCLUSIVE, voucher.getNutrition());
     }
 
     @Test
@@ -151,12 +151,12 @@ public class VoucherTest {
         Voucher voucher = Voucher.fromString(line);
 
         assertNotNull(voucher);
-        Assertions.assertEquals(Country.Italy, voucher.getCountry());
+        Assertions.assertEquals(Country.ITALY, voucher.getCountry());
         Assertions.assertEquals(2150, voucher.getPrice());
-        Assertions.assertEquals(VoucherType.Excursion, voucher.getType());
-        Assertions.assertEquals(VoucherTransport.Train, voucher.getTransport());
-        Assertions.assertEquals(Budget.Medium, voucher.getBudget());
-        Assertions.assertEquals(Nutrition.AllInclusive, voucher.getNutrition());
+        Assertions.assertEquals(VoucherType.EXCURSION, voucher.getType());
+        Assertions.assertEquals(VoucherTransport.TRAIN, voucher.getTransport());
+        Assertions.assertEquals(Budget.MEDIUM, voucher.getBudget());
+        Assertions.assertEquals(Nutrition.ALL_INCLUSIVE, voucher.getNutrition());
         Assertions.assertEquals(4, voucher.getNumberOfDays());
         Assertions.assertEquals(LocalDate.of(2024, 11, 11), voucher.getVoucherDate());
     }
@@ -164,21 +164,21 @@ public class VoucherTest {
     @Test
     void testDefaultConstructor() {
 
-        when(SelectParameters.selectVoucherType()).thenReturn(VoucherType.Shopping);
-        when(SelectParameters.selectCountry()).thenReturn(Country.Germany);
-        when(SelectParameters.selectTransport()).thenReturn(VoucherTransport.Train);
-        when(SelectParameters.selectNutrition()).thenReturn(Nutrition.AllInclusive);
-        when(SelectParameters.selectBudget()).thenReturn(Budget.Medium);
+        when(SelectParameters.selectVoucherType()).thenReturn(VoucherType.SHOPPING);
+        when(SelectParameters.selectCountry()).thenReturn(Country.GERMANY);
+        when(SelectParameters.selectTransport()).thenReturn(VoucherTransport.TRAIN);
+        when(SelectParameters.selectNutrition()).thenReturn(Nutrition.ALL_INCLUSIVE);
+        when(SelectParameters.selectBudget()).thenReturn(Budget.MEDIUM);
         when(Utilities.getValidatedInput(1, 5)).thenReturn(4);
         when(Utilities.getValidatedDateInput()).thenReturn("2024-11-20");
 
         Voucher voucher1 = new Voucher();
 
-        assertEquals(VoucherType.Shopping, voucher1.getType());
-        assertEquals(Country.Germany, voucher1.getCountry());
-        assertEquals(VoucherTransport.Train, voucher1.getTransport());
-        assertEquals(Nutrition.AllInclusive, voucher1.getNutrition());
-        assertEquals(Budget.Medium, voucher1.getBudget());
+        assertEquals(VoucherType.SHOPPING, voucher1.getType());
+        assertEquals(Country.GERMANY, voucher1.getCountry());
+        assertEquals(VoucherTransport.TRAIN, voucher1.getTransport());
+        assertEquals(Nutrition.ALL_INCLUSIVE, voucher1.getNutrition());
+        assertEquals(Budget.MEDIUM, voucher1.getBudget());
         assertEquals(4, voucher1.getNumberOfDays());
         assertEquals("2024-11-20", voucher1.getVoucherDate().toString());
 
@@ -202,11 +202,11 @@ public class VoucherTest {
     @Test
     public void testSelectBudget() {
         Voucher voucher = new Voucher(null, 200, null, null, null, null, 0, null);
-        Budget budget = Budget.Medium;
+        Budget budget = Budget.MEDIUM;
         selectParameters.when(SelectParameters::selectBudget).thenReturn(budget);
 
         voucher.selectBudget();
-        Assertions.assertEquals(Budget.Medium, voucher.getBudget());
+        Assertions.assertEquals(Budget.MEDIUM, voucher.getBudget());
     }
 
     @Test
@@ -237,12 +237,12 @@ public class VoucherTest {
     void testSetNumberOfDays() {
         Voucher voucher = new Voucher(null, 0, null, null, null, null, 0, null);
 
-        voucher.setType(VoucherType.Recreation);
+        voucher.setType(VoucherType.RECREATION);
         when(Utilities.getValidatedInput(1, 14)).thenReturn(5);
 
         voucher.selectNumberOfDays();
 
-        int totalPrice = 5 * VoucherType.Recreation.getPrice();
+        int totalPrice = 5 * VoucherType.RECREATION.getPrice();
 
         Assertions.assertEquals(5, voucher.getNumberOfDays());
         Assertions.assertEquals(totalPrice, voucher.getPrice());
@@ -250,8 +250,8 @@ public class VoucherTest {
 
     @Test
     void testExecuteOther() {
-        Nutrition nutrition = Nutrition.NoMeals;
-        VoucherType type = VoucherType.Excursion;
+        Nutrition nutrition = Nutrition.NONE;
+        VoucherType type = VoucherType.EXCURSION;
 
         voucher.setType(type);
         voucher.setPrice(type.getPrice());
@@ -266,9 +266,9 @@ public class VoucherTest {
     }
 
     @Test
-    void testExecuteTreatment() {
-        Nutrition nutrition = Nutrition.AllInclusive;
-        VoucherType type = VoucherType.Recreation;
+    void testExecuteTREATMENT() {
+        Nutrition nutrition = Nutrition.ALL_INCLUSIVE;
+        VoucherType type = VoucherType.RECREATION;
 
         voucher.setType(type);
         voucher.setPrice(type.getPrice());
@@ -283,9 +283,9 @@ public class VoucherTest {
     }
 
     @Test
-    void testExecuteCruise() {
-        Nutrition nutrition = Nutrition.AllInclusive;
-        VoucherType type = VoucherType.Cruise;
+    void testExecuteCRUISE() {
+        Nutrition nutrition = Nutrition.ALL_INCLUSIVE;
+        VoucherType type = VoucherType.CRUISE;
 
         voucher.setType(type);
         voucher.setPrice(type.getPrice());
@@ -302,7 +302,7 @@ public class VoucherTest {
     @Test
     public void testSelectTransport() {
         Voucher voucher = new Voucher(null, 200, null, null, null, null, 0, null);
-        VoucherTransport transport = VoucherTransport.Plane;
+        VoucherTransport transport = VoucherTransport.PLANE;
 
         when(SelectParameters.selectTransport()).thenReturn(transport);
 
@@ -317,7 +317,7 @@ public class VoucherTest {
     @Test
     public void testSelectType() {
         Voucher voucher = new Voucher(null, 200, null, null, null, null, 0, null);
-        VoucherType type = VoucherType.EduTour;
+        VoucherType type = VoucherType.EDU_TOUR;
 
         when(SelectParameters.selectVoucherType()).thenReturn(type);
 

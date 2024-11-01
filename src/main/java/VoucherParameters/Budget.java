@@ -1,9 +1,9 @@
 package VoucherParameters;
 
 public enum Budget {
-    Low("Низький", 200),
-    Medium("Середній", 400),
-    High("Високий", 600);
+    LOW("Низький", 200),
+    MEDIUM("Середній", 400),
+    HIGH("Високий", 600);
 
     private final String translate;
     private final int price;

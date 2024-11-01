@@ -1,14 +1,14 @@
 package VoucherParameters;
 
 public enum VoucherType {
-    Recreation("Відпочинок", 500, 14),
-    Excursion("Екскурсія", 300, 10),
-    Treatment("Лікування", 700, 21),
-    Shopping("Шопінг", 400, 5),
-    Cruise("Круїз", 1000, 30),
-    ExtremeTour("Екстрим тур", 800, 7),
-    EduTour("Еду тур", 600, 13),
-    GastroTour("Гастро тур", 500, 8);
+    RECREATION("Відпочинок", 500, 14),
+    EXCURSION("Екскурсія", 300, 10),
+    TREATMENT("Лікування", 700, 21),
+    SHOPPING("Шопінг", 400, 5),
+    CRUISE("Круїз", 1000, 30),
+    EXTREME_TOUR("Екстрим тур", 800, 7),
+    EDU_TOUR("Еду тур", 600, 13),
+    GASTRO_TOUR("Гастро тур", 500, 8);
 
     private final String translate;
     private final int price;

@@ -8,20 +8,20 @@ class CountryTest {
 
     @Test
     void testFromStringValid() {
-        assertEquals(Country.France, Country.fromString("Франція"));
-        assertEquals(Country.Germany, Country.fromString("Німеччина"));
-        assertEquals(Country.Italy, Country.fromString("Італія"));
-        assertEquals(Country.Spain, Country.fromString("Іспанія"));
+        assertEquals(Country.FRANCE, Country.fromString("Франція"));
+        assertEquals(Country.GERMANY, Country.fromString("Німеччина"));
+        assertEquals(Country.ITALY, Country.fromString("Італія"));
+        assertEquals(Country.SPAIN, Country.fromString("Іспанія"));
         assertEquals(Country.USA, Country.fromString("США"));
-        assertEquals(Country.Canada, Country.fromString("Канада"));
-        assertEquals(Country.Brazil, Country.fromString("Бразилія"));
-        assertEquals(Country.Australia, Country.fromString("Австралія"));
-        assertEquals(Country.Japan, Country.fromString("Японія"));
-        assertEquals(Country.Egypt, Country.fromString("Єгипет"));
-        assertEquals(Country.Turkey, Country.fromString("Туреччина"));
-        assertEquals(Country.UnitedKingdom, Country.fromString("Велика Британія"));
-        assertEquals(Country.Sweden, Country.fromString("Швеція"));
-        assertEquals(Country.Norway, Country.fromString("Норвегія"));
+        assertEquals(Country.CANADA, Country.fromString("Канада"));
+        assertEquals(Country.BRAZIL, Country.fromString("Бразилія"));
+        assertEquals(Country.AUSTRALIA, Country.fromString("Австралія"));
+        assertEquals(Country.JAPAN, Country.fromString("Японія"));
+        assertEquals(Country.EGYPT, Country.fromString("Єгипет"));
+        assertEquals(Country.TURKEY, Country.fromString("Туреччина"));
+        assertEquals(Country.UNITED_KINGDOM, Country.fromString("Велика Британія"));
+        assertEquals(Country.SWEDEN, Country.fromString("Швеція"));
+        assertEquals(Country.NORWAY, Country.fromString("Норвегія"));
     }
 
     @Test
@@ -31,19 +31,19 @@ class CountryTest {
 
     @Test
     void testToString() {
-        assertEquals("Франція", Country.France.toString());
-        assertEquals("Німеччина", Country.Germany.toString());
-        assertEquals("Італія", Country.Italy.toString());
-        assertEquals("Іспанія", Country.Spain.toString());
+        assertEquals("Франція", Country.FRANCE.toString());
+        assertEquals("Німеччина", Country.GERMANY.toString());
+        assertEquals("Італія", Country.ITALY.toString());
+        assertEquals("Іспанія", Country.SPAIN.toString());
         assertEquals("США", Country.USA.toString());
-        assertEquals("Канада", Country.Canada.toString());
-        assertEquals("Бразилія", Country.Brazil.toString());
-        assertEquals("Австралія", Country.Australia.toString());
-        assertEquals("Японія", Country.Japan.toString());
-        assertEquals("Єгипет", Country.Egypt.toString());
-        assertEquals("Туреччина", Country.Turkey.toString());
-        assertEquals("Велика Британія", Country.UnitedKingdom.toString());
-        assertEquals("Швеція", Country.Sweden.toString());
-        assertEquals("Норвегія", Country.Norway.toString());
+        assertEquals("Канада", Country.CANADA.toString());
+        assertEquals("Бразилія", Country.BRAZIL.toString());
+        assertEquals("Австралія", Country.AUSTRALIA.toString());
+        assertEquals("Японія", Country.JAPAN.toString());
+        assertEquals("Єгипет", Country.EGYPT.toString());
+        assertEquals("Туреччина", Country.TURKEY.toString());
+        assertEquals("Велика Британія", Country.UNITED_KINGDOM.toString());
+        assertEquals("Швеція", Country.SWEDEN.toString());
+        assertEquals("Норвегія", Country.NORWAY.toString());
     }
 }

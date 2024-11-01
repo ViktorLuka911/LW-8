@@ -28,19 +28,19 @@ class SystemVouchersTest {
         systemVouchers = SystemVouchers.getInstance();
         systemVouchers.getVouchers().clear();
 
-        voucher1 = new Voucher(Country.Italy, 2600,
-                VoucherType.Excursion, VoucherTransport.Train,
-                Nutrition.AllInclusive, Budget.Low,
+        voucher1 = new Voucher(Country.ITALY, 2600,
+                VoucherType.EXCURSION, VoucherTransport.TRAIN,
+                Nutrition.ALL_INCLUSIVE, Budget.LOW,
                 10, LocalDate.of(2024, 11, 15));
 
-        voucher2 = new Voucher(Country.Germany, 1200,
-                VoucherType.Recreation, VoucherTransport.Plane,
-                Nutrition.AllInclusive, Budget.Medium,
+        voucher2 = new Voucher(Country.GERMANY, 1200,
+                VoucherType.RECREATION, VoucherTransport.PLANE,
+                Nutrition.ALL_INCLUSIVE, Budget.MEDIUM,
                 13, LocalDate.of(2024, 12, 11));
 
-        voucher3 = new Voucher(Country.Italy, 3000,
-                VoucherType.Shopping, VoucherTransport.Plane,
-                Nutrition.NoMeals, Budget.Medium,
+        voucher3 = new Voucher(Country.ITALY, 3000,
+                VoucherType.SHOPPING, VoucherTransport.PLANE,
+                Nutrition.NONE, Budget.MEDIUM,
                 5, LocalDate.of(2024, 10, 25));
 
         systemVouchers.getVouchers().add(voucher1);
@@ -61,9 +61,9 @@ class SystemVouchersTest {
         InputStream in = new ByteArrayInputStream("\n".getBytes());
         System.setIn(in);
 
-        Voucher voucher = new Voucher(Country.Italy, 2700,
-                VoucherType.Excursion, VoucherTransport.Train,
-                Nutrition.AllInclusive, Budget.Low,
+        Voucher voucher = new Voucher(Country.ITALY, 2700,
+                VoucherType.EXCURSION, VoucherTransport.TRAIN,
+                Nutrition.ALL_INCLUSIVE, Budget.LOW,
                 10, LocalDate.of(2024, 11, 15));
         systemVouchers.addVoucher(voucher);
 
@@ -89,9 +89,9 @@ class SystemVouchersTest {
         InputStream in = new ByteArrayInputStream("\n".getBytes());
         System.setIn(in);
 
-        Voucher voucher = new Voucher(Country.Italy, 2700,
-                VoucherType.Excursion, VoucherTransport.Train,
-                Nutrition.AllInclusive, Budget.Low,
+        Voucher voucher = new Voucher(Country.ITALY, 2700,
+                VoucherType.EXCURSION, VoucherTransport.TRAIN,
+                Nutrition.ALL_INCLUSIVE, Budget.LOW,
                 10, LocalDate.of(2024, 11, 15));
         systemVouchers.deleteVoucher(voucher);
 
@@ -100,9 +100,9 @@ class SystemVouchersTest {
 
     @Test
     void testAddVoucherNull() {
-        Voucher voucher = new Voucher(Country.Italy, 2700,
-                VoucherType.Excursion, VoucherTransport.Train,
-                Nutrition.AllInclusive, Budget.Low,
+        Voucher voucher = new Voucher(Country.ITALY, 2700,
+                VoucherType.EXCURSION, VoucherTransport.TRAIN,
+                Nutrition.ALL_INCLUSIVE, Budget.LOW,
                 10, LocalDate.of(2024, 11, 15));
         systemVouchers.setVouchers(null);
         systemVouchers.addVoucher(voucher);
@@ -156,7 +156,7 @@ class SystemVouchersTest {
 
     @Test
     void testSetVouchersType() {
-        systemVouchers.setVouchersByType(VoucherType.Excursion);
+        systemVouchers.setVouchersByType(VoucherType.EXCURSION);
         ListVouchers filteredVouchers = systemVouchers.getVouchers();
 
         assertEquals(1, filteredVouchers.size());
@@ -165,7 +165,7 @@ class SystemVouchersTest {
 
     @Test
     void testSetVouchersCountry() {
-        systemVouchers.setVouchersByCountry(Country.Italy);
+        systemVouchers.setVouchersByCountry(Country.ITALY);
         ListVouchers filteredVouchers = systemVouchers.getVouchers();
 
         assertEquals(2, filteredVouchers.size());
@@ -175,7 +175,7 @@ class SystemVouchersTest {
 
     @Test
     void testSetVouchersTransport() {
-        systemVouchers.setVouchersByTransport(VoucherTransport.Plane);
+        systemVouchers.setVouchersByTransport(VoucherTransport.PLANE);
         ListVouchers filteredVouchers = systemVouchers.getVouchers();
 
         assertEquals(2, filteredVouchers.size());
@@ -185,7 +185,7 @@ class SystemVouchersTest {
 
     @Test
     void testSetVouchersNutrition() {
-        systemVouchers.setVouchersByNutrition(Nutrition.AllInclusive);
+        systemVouchers.setVouchersByNutrition(Nutrition.ALL_INCLUSIVE);
         ListVouchers filteredVouchers = systemVouchers.getVouchers();
 
         assertEquals(2, filteredVouchers.size());
@@ -195,7 +195,7 @@ class SystemVouchersTest {
 
     @Test
     void testSetVouchersByBudget() {
-        systemVouchers.setVouchersByBudget(Budget.Medium);
+        systemVouchers.setVouchersByBudget(Budget.MEDIUM);
         ListVouchers filteredVouchers = systemVouchers.getVouchers();
 
         assertEquals(2, filteredVouchers.size());

@@ -8,16 +8,16 @@ public class BudgetTest {
 
     @Test
     void testGetPrice() {
-        assertEquals(200, Budget.Low.getPrice());
-        assertEquals(400, Budget.Medium.getPrice());
-        assertEquals(600, Budget.High.getPrice());
+        assertEquals(200, Budget.LOW.getPrice());
+        assertEquals(400, Budget.MEDIUM.getPrice());
+        assertEquals(600, Budget.HIGH.getPrice());
     }
 
     @Test
     void testFromStringValid() {
-        assertEquals(Budget.Low, Budget.fromString("Низький"));
-        assertEquals(Budget.Medium, Budget.fromString("Середній"));
-        assertEquals(Budget.High, Budget.fromString("Високий"));
+        assertEquals(Budget.LOW, Budget.fromString("Низький"));
+        assertEquals(Budget.MEDIUM, Budget.fromString("Середній"));
+        assertEquals(Budget.HIGH, Budget.fromString("Високий"));
     }
 
     @Test
@@ -27,8 +27,8 @@ public class BudgetTest {
 
     @Test
     void testToString() {
-        assertEquals("Низький", Budget.Low.toString());
-        assertEquals("Середній", Budget.Medium.toString());
-        assertEquals("Високий", Budget.High.toString());
+        assertEquals("Низький", Budget.LOW.toString());
+        assertEquals("Середній", Budget.MEDIUM.toString());
+        assertEquals("Високий", Budget.HIGH.toString());
     }
 }

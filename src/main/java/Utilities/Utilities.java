@@ -32,13 +32,15 @@ public class Utilities {
                 LocalDate parsedDate = LocalDate.parse(input);
 
                 if (parsedDate.isBefore(LocalDate.now())) {
-                    System.out.print("\n\tДата не може бути у минулому. Спробуйте знову (формат: YYYY-MM-DD):");
+                    System.out.print("\n\tДата не може бути у минулому. Спробуйте знову (формат: YYYY-MM-DD): ");
+                    logger.logError("Виникла помилка під час встановлення дати путівки.\n", String.format("Користувач ввів: %s - це дата в минулому.", input));
+
                     continue;
                 }
 
                 return input;
             } catch (DateTimeParseException e) {
-                System.out.print("\n\tНевірний формат дати. Спробуйте знову (формат: YYYY-MM-DD):");
+                System.out.print("\n\tНевірний формат дати. Спробуйте знову (формат: YYYY-MM-DD): ");
                 logger.logError("Виникла помилка під час встановлення дати путівки.\n", String.format("Користувач ввів: %s.", input));
             }
         }
