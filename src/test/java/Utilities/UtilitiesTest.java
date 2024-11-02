@@ -81,7 +81,7 @@ public class UtilitiesTest {
         Path path = Paths.get("Logs/Program.log");
 
         List<String> lines = Files.readAllLines(path);
-        lines = lines.subList(0, lines.size() - 5);
+        lines = lines.subList(0, lines.size() - 6);
         Files.write(path, lines);
     }
 

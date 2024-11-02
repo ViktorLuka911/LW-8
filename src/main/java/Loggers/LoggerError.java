@@ -9,21 +9,21 @@ public class LoggerError {
     public void sendError(String subject, String messageBody) {
         Properties props = new Properties();
         props.put("mail.smtp.host", "smtp.gmail.com");
-        props.put("mail.smtp.port", "587");
+        props.put("mail.smtp.port", "");
         props.put("mail.smtp.auth", "true");
         props.put("mail.smtp.starttls.enable", "true");
 
         Session session = Session.getInstance(props, new Authenticator() {
             @Override
             protected PasswordAuthentication getPasswordAuthentication() {
-                return new PasswordAuthentication("viktorluka2525@gmail.com", "mptg irwc egdq cazm");
+                return new PasswordAuthentication("", "");
             }
         });
 
         try {
             Message message = new MimeMessage(session);
-            message.setFrom(new InternetAddress("viktorluka2525@gmail.com"));
-            message.setRecipients(Message.RecipientType.TO, InternetAddress.parse("lv418153@gmail.com"));
+            message.setFrom(new InternetAddress(""));
+            message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(""));
             message.setSubject(subject);
             message.setText(messageBody);
 
