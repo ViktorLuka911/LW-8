@@ -120,7 +120,7 @@ public class SystemVouchers {
                 vouchers.add(Voucher.fromString(line));
             }
         } catch (IOException e) {
-            System.out.println("\n\tСталася помилка при перезавантаженні ваучерів.\n");
+            System.out.println("\n\tСталася помилка при перезавантаженні списку.\n");
             logger.logError("Помилка при читанні файлу бази даних.", "");
         }
     }
